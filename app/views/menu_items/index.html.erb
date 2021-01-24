@@ -12,10 +12,15 @@
 
   <section class="MenuItemSection">
     <ul>
-      <% MenuItem.all.each do |item| %>
-        <li class="MenuItem-item">
-          <%= item.id %> | <%= item.name %> | <%= item.price %>
-        </li>
+      <%= form_with(url: "/orders", method: "post", class: "AddMenuItem") do %>
+        <% MenuItem.all.each do |item| %>
+            <li class="MenuItem-item">
+              <%= check_box_tag 'menu_item_ids[]', item.id %>
+              <%= item.name %> |
+              &#8377;<%= item.price %>
+            </li>
+        <% end %>
+        <%= submit_tag 'Order', class: 'AddMenuItem-button' %>
       <% end %>
     </ul>
   </section>

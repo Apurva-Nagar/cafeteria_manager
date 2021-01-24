@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     current_order = Order.new(
       date: date,
       user_id: user_id,
+      delivered: false,
     )
 
     if current_order.save

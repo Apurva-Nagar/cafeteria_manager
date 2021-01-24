@@ -1,0 +1,14 @@
+<main class="MenuItemsMain">
+  <h1 class="MenuItems-title">List of items available</h1>
+
+  <section class="MenuItemSection">
+    <ul>
+        <% MenuItem.all.each do |item| %>
+          <li class="MenuItem-item">
+            <%= item.name %> | <%= item.price %>
+          </li>
+        <% end %>
+    </ul>
+  </section>
+
+</main>

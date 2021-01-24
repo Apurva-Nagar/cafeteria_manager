@@ -1,0 +1,19 @@
+.MenuItem-title {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #453c52;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.MenuItemSection {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.MenuItem-item {
+  font-size: 14px;
+  margin-left: 8px;
+  margin-bottom: 6px;
+  color: #453c52;
+}

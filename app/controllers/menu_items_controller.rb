@@ -2,7 +2,7 @@ class MenuItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    render plain: MenuItem.all.map { |item| item.to_pleasant_string }.join("\n")
+    render "index"
   end
 
   def create

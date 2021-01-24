@@ -25,9 +25,9 @@ class OrdersController < ApplicationController
           render plain: "some error occured!"
         end
       end
-      redirect_to menu_items_path
     else
       render plain: "some error occured!"
     end
+    redirect_to orders_path
   end
 end

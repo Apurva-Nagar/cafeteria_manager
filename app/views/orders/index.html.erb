@@ -1,0 +1,12 @@
+<section class="OrdersSection">
+  <h3 class="Order-title">Orders</h3>
+  <ul>
+    <% Order.all.each do |order| %>
+      <%= render partial: "order-items-section", locals: {
+        order_id: order.id,
+        customer_name: User.find(order.user_id).name,
+        order_items: order.order_items
+      } %>
+    <% end %>
+  </ul>
+</section>

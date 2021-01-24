@@ -7,6 +7,14 @@
         customer_name: User.find(order.user_id).name,
         order_items: order.order_items
       } %>
+
+      <% if !order.delivered %>
+        <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
+          <%= submit_tag 'Order', class: 'OrderDelivered-button' %>
+        <% end %>
+      <% else %>
+        <p>Order Delivered</p>
+      <% end %>
     <% end %>
   </ul>
 </section>

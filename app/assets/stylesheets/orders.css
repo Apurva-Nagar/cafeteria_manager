@@ -35,3 +35,12 @@
   padding: 4px 0px;
   color: #453c52;
 }
+
+.OrderDelivered-button {
+  padding: 6px 22px;
+  font-size: 14px;
+  color: white;
+  background-color: #48bb78;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}

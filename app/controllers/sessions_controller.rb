@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
       render plain: "Your login attempt was in valid. Please try again."
     end
   end
+
+  def destroy
+    session[:current_user_id] = nil
+    render plain: "You are now logged out"
+  end
 end

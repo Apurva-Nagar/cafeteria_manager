@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if user.save
-      render plain: "User created successfully."
+      session[:current_user_id] = user.id
+      redirect_to menu_items_path
     else
       render plain: "ERROR: User creation failed!"
     end

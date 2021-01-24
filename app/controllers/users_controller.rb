@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    render "new"
+    if current_user
+      redirect_to menu_items_path
+    else
+      render "new"
+    end
   end
 
   def create

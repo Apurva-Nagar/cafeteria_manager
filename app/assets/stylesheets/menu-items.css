@@ -44,6 +44,15 @@
   border-radius: 4px;
 }
 
+.AddMenuItem-menu-options {
+  padding: 6px;
+  font-size: 14px;
+  color: #453c52;
+  margin-right: 10px;
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+}
+
 .AddMenuItem-button {
   padding: 6px 22px;
   font-size: 14px;

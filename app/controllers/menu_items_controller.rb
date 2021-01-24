@@ -13,7 +13,7 @@ class MenuItemsController < ApplicationController
       price: price,
     )
     if new_menu_item.save
-      render plain: "Menu Item Added"
+      redirect_to menu_items_path
     else
       render plain: "ERROR: Menu item not added"
     end

@@ -1,11 +1,16 @@
 <main class="MenuItemsMain">
-  <h1 class="MenuItems-title">List of items available</h1>
+  <h1 class="MenuItem-title">Menu Items</h1>
+  <%= form_with(url: "/menu_items", method: "post", class: "AddMenuItem") do %>
+    <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
+    <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>
+    <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
+  <% end %>
 
   <section class="MenuItemSection">
     <ul>
         <% MenuItem.all.each do |item| %>
           <li class="MenuItem-item">
-            <%= item.name %> | <%= item.price %>
+            <%= item.id %> | <%= item.name %> | <%= item.price %>
           </li>
         <% end %>
     </ul>

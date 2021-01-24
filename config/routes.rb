@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/", to: "home#index"
   resources :menu_items
   resources :users
   get "/signin" => "sessions#new", as: :new_session

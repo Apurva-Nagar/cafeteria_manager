@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   def index
-    render "index"
+    if current_user.role === "owner"
+      render "index"
+    else
+      redirect_to menu_items_path
+    end
   end
 
   def create

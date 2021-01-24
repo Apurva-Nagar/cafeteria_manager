@@ -5,10 +5,14 @@ class UsersController < ApplicationController
     render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
   end
 
+  def new
+    render "users/new"
+  end
+
   def create
     user = User.new(
       name: params[:name],
-      role: params[:role],
+      role: 'customer',
       email: params[:email],
       password: params[:password],
     )

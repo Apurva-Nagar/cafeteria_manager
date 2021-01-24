@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
-    render plain: "You are now logged out"
+    @current_user = nil
+    redirect_to "/"
   end
 end

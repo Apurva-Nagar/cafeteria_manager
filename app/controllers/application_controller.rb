@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :ensure_user_logged_in
 
+  def ensure_user_is_owner
+    unless current_user.role === "owner"
+      redirect_to "/"
+    end
+  end
+
   def ensure_user_logged_in
     unless current_user
       redirect_to "/"

@@ -1,20 +1,22 @@
 <main class="MenuItemsMain">
   <h1 class="MenuItem-title">Menu Items</h1>
-  <%= form_with(url: "/menu_items", method: "post", class: "AddMenuItem") do %>
-    <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
-    <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>
-    <%= text_area_tag 'description', nil, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
-    <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
-    <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
+  <% if @current_user.role === "owner" %>
+    <%= form_with(url: "/menu_items", method: "post", class: "AddMenuItem") do %>
+      <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
+      <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>
+      <%= text_area_tag 'description', nil, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
+      <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
+      <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
+    <% end %>
   <% end %>
 
   <section class="MenuItemSection">
     <ul>
-        <% MenuItem.all.each do |item| %>
-          <li class="MenuItem-item">
-            <%= item.id %> | <%= item.name %> | <%= item.price %>
-          </li>
-        <% end %>
+      <% MenuItem.all.each do |item| %>
+        <li class="MenuItem-item">
+          <%= item.id %> | <%= item.name %> | <%= item.price %>
+        </li>
+      <% end %>
     </ul>
   </section>
 

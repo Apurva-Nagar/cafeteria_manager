@@ -6,13 +6,12 @@
   <% end %>
 
   <section class="MenuSection">
-    <ul>
-        <% Menu.all.each do |menu| %>
-          <li class="Menu-item">
-            <%= menu.id %> | <%= menu.name %>
-          </li>
-        <% end %>
-    </ul>
+    <% Menu.all.each do |menu| %>
+      <%= render partial: "menu-items-section", locals: {
+        menu_title: menu.name,
+        menu_items: menu.menu_items
+      } %>
+    <% end %>
   </section>
 
 </main>

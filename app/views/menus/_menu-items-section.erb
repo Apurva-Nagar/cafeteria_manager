@@ -1,0 +1,6 @@
+<section class="MenuSectionDetails">
+  <h3 class="MenuSectionDetails-title"><%= menu_title %></h3>
+  <% menu_items.all.each do |item| %>
+    <p class="MenuSectionDetails-item"><%= item.name %></p>
+  <% end %>
+</section>

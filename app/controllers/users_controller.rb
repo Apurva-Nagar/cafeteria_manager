@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :ensure_user_logged_in
 
   def index
     render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(
       name: params[:name],
-      role: 'customer',
+      role: "customer",
       email: params[:email],
       password: params[:password],
     )

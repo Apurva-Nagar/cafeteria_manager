@@ -3,7 +3,8 @@
   <%= form_with(url: "/menu_items", method: "post", class: "AddMenuItem") do %>
     <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
     <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>
-    <%= select_tag "menu", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
+    <%= text_area_tag 'description', nil, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
+    <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
     <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
   <% end %>
 

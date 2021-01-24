@@ -8,9 +8,13 @@ class MenuItemsController < ApplicationController
   def create
     name = params[:name]
     price = params[:price]
+    menu_id = params[:menu_id]
+    description = params[:description]
     new_menu_item = MenuItem.new(
       name: name,
       price: price,
+      menu_id: menu_id,
+      description: description,
     )
     if new_menu_item.save
       redirect_to menu_items_path

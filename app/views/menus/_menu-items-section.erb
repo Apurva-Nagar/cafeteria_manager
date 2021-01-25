@@ -1,14 +1,23 @@
 <section class="MenuSectionDetails">
   <div class="MenuDetailsContainer">
-    <%= form_with(url: "/orders", method: "post") do %>
+    <% if menu_active %>
+      <%= form_with(url: "/orders", method: "post") do %>
+        <% menu_items.all.each do |item| %>
+          <li class="MenuItem-item">
+            <%= check_box_tag 'menu_item_ids[]', item.id %>
+            <%= item.name %> &nbsp;&nbsp;
+            &#8377;<%= item.price %>
+          </li>
+        <% end %>
+        <%= submit_tag 'Order', class: 'Order-button' %>
+      <% end %>
+    <% else %>
       <% menu_items.all.each do |item| %>
         <li class="MenuItem-item">
-          <%= check_box_tag 'menu_item_ids[]', item.id %>
           <%= item.name %> &nbsp;&nbsp;
           &#8377;<%= item.price %>
         </li>
       <% end %>
-      <%= submit_tag 'Order', class: 'Order-button' %>
     <% end %>
   </div>
 </section>

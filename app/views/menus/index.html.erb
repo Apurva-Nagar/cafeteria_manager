@@ -25,9 +25,9 @@
             </div>
           <% end %>
         </div>
-
         <%= render partial: "menu-items-section", locals: {
-          menu_items: menu.menu_items
+          menu_items: menu.menu_items,
+          menu_active: menu.active
         } %>
       <% end %>
     </section>

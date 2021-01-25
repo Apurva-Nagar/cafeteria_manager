@@ -1,6 +1,6 @@
 <main class="MenuItemsMain">
   <h1 class="MenuItem-title">Menu Items</h1>
-  <% if @current_user.role === "owner" %>
+  <% if @current_user.is_owner %>
     <%= form_with(url: "/menu_items", method: "post", class: "AddMenuItem") do %>
       <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
       <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>

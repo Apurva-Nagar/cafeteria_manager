@@ -1,6 +1,6 @@
 <main class="MenuMain">
   <h1 class="Menu-title">Menus</h1>
-  <% if @current_user.role === "owner" %>
+  <% if @current_user.is_owner %>
     <%= form_with(url: "/menus", method: "post", class: "AddMenu") do %>
       <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenu-text' %>
       <%= submit_tag 'Add', class: 'AddMenu-button' %>

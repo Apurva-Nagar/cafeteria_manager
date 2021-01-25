@@ -10,6 +10,10 @@ class OrdersController < ApplicationController
     user_id = current_user.id
     menu_item_ids = params[:menu_item_ids]
 
+    if User.find(user_id).role == "owner"
+      user_id = 13
+    end
+
     current_order = Order.new(
       date: date,
       user_id: user_id,

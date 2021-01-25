@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
 
   def update
     id = params[:id]
-    order = current_user.orders.find(id)
+    order = Order.find(id)
     order.delivered = !order.delivered
     order.save!
     redirect_to orders_path

@@ -18,6 +18,10 @@
   font-family: sans-serif;
 }
 
+*:focus {
+  outline: none;
+}
+
 .Navbar {
   display: flex;
   position: fixed;

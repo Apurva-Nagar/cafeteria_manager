@@ -1,20 +1,18 @@
-<section class="OrdersSection">
+<section class="OrderSection">
   <h3 class="Order-title">Orders</h3>
-  <ul>
-    <% Order.all.each do |order| %>
-      <%= render partial: "order-items-section", locals: {
-        order_id: order.id,
-        customer_name: order.get_customer_name,
-        order_items: order.order_items
-      } %>
-
+  <% Order.all.each do |order| %>
+    <div class="OrderDetails-wrapper">
       <% if !order.delivered %>
+        <%= render partial: "order-items-section", locals: {
+          order_id: order.id,
+          customer_name: order.get_customer_name,
+          order_items: order.order_items
+        } %>
+
         <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
           <%= submit_tag 'Mark as delivered', class: 'OrderDelivered-button' %>
         <% end %>
-      <% else %>
-        <p>Order Delivered</p>
       <% end %>
-    <% end %>
-  </ul>
+    </div>
+  <% end %>
 </section>

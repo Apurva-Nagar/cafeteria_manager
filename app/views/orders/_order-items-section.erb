@@ -1,7 +1,7 @@
 <section class="OrderItemSection">
   <h3 class="OrderItem-details">Order ID: <%= order_id %> | Customer: <%= customer_name %></h3>
+  <hr>
   <% order_items.all.each do |item| %>
-    <p class="OrderItem-item"><%= item.menu_item_name %></p>
-    <p class="OrderItem-price"><%= item.menu_item_price %></p>
+    <p class="OrderItem-item"><%= item.menu_item_name %>&nbsp;&nbsp; &#8377;<%= item.menu_item_price %></p>
   <% end %>
 </section>

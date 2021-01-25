@@ -9,10 +9,16 @@
 
   <section class="MenuSection">
     <% Menu.all.each do |menu| %>
-      <%= render partial: "menu-items-section", locals: {
-        menu_title: menu.name,
-        menu_items: menu.menu_items
-      } %>
+      <% if menu.active %>
+        <p>ACTIVE</p>
+      <% end %>
+        <%= render partial: "menu-items-section", locals: {
+          menu_title: menu.name,
+          menu_items: menu.menu_items
+        } %>
+        <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
+          <%= submit_tag 'Mark as active', class: 'OrderDelivered-button' %>
+        <% end %>
     <% end %>
   </section>
 

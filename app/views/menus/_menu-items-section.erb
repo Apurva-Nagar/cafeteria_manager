@@ -5,7 +5,7 @@
       <li class="MenuItem-item">
         <%= check_box_tag 'menu_item_ids[]', item.id %>
           <%= item.name %> |
-          &#8377;<%= item.price %>
+          &#8377;<%= item.price %> |
       </li>
     <% end %>
     <%= submit_tag 'Order', class: 'AddMenuItem-button' %>

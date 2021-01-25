@@ -1,6 +1,6 @@
 <section class="OrderSection">
   <h3 class="Order-title">Orders</h3>
-  <% Order.all.each do |order| %>
+  <% Order.order("id").each do |order| %>
     <div class="OrderDetails-wrapper">
       <% if !order.delivered %>
         <%= render partial: "order-items-section", locals: {

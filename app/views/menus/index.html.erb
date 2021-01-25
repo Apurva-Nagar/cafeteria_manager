@@ -37,7 +37,8 @@
         <h3 class="MenuSectionDetails-title"><%= Menu.active_menu.name %></h3>
       </div>
       <%= render partial: "menu-items-section", locals: {
-        menu_items: Menu.active_menu.menu_items
+        menu_items: Menu.active_menu.menu_items,
+        menu_active: true
       } %>
     </section>
   <% end %>

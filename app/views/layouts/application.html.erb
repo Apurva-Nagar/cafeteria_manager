@@ -14,10 +14,16 @@
     <nav class="Navbar">
       <h2 class="Navbar-brand">COCO Cafe</h2>
       <ul class="Navbar-container">
-        <li class="Navbar-item"><%= link_to "Home", "/" %></li>
         <% if @current_user %>
+          <li class="Navbar-item"><%= link_to "Menu", menus_path %></li>
+          <% if @current_user.is_owner %>
+            <li class="Navbar-item"><%= link_to "Menu Items", menu_items_path %></li>
+            <li class="Navbar-item"><%= link_to "Order", orders_path %></li>
+            <li class="Navbar-item"><%= link_to "Users", users_path %></li>
+          <% end %>
           <li class="Navbar-item"><%= link_to "Sign-out", destroy_session_path, method: "delete" %></li>
         <% else %>
+          <li class="Navbar-item"><%= link_to "Home", "/" %></li>
           <li class="Navbar-item">
             <div class="Navbar-item-highlight">
               <%= link_to "Sign-up", new_user_path %>

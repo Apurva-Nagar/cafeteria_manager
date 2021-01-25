@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
   skip_before_action :ensure_user_logged_in
-  before_action :ensure_user_is_owner
 
   def index
-    render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
+    if current_user && current_user.role === "owner"
+      render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
+    else
+      redirect_to menu_items_path
+    end
   end
 
   def new

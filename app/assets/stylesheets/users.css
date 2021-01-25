@@ -52,3 +52,36 @@
   border: 0px;
   border-radius: 4px;
 }
+
+.UserSection {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 0px 25px;
+  width: 500px;
+}
+
+.User-title {
+  line-height: 2;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: #453c52;
+}
+
+.UserTable {
+  border-collapse: collapse;
+}
+
+.UserTable-head {
+  background: #ccc;
+}
+
+.UserTable-head,
+.UserTable-detail {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.UserTable-row:hover {
+  background: #d1d1d1;
+}

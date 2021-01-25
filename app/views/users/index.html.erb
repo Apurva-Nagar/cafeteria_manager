@@ -1,8 +1,18 @@
-<section>
-  <h3>List of users:</h3>
-  <ul>
+<section class="UserSection">
+  <h3 class="User-title">List of users:</h3>
+  <table class="UserTable">
+    <tr class="UserTable-row">
+      <th class="UserTable-head">Name</th>
+      <th class="UserTable-head" >Email</th>
+      <th class="UserTable-head">Role</th>
+    </tr>
     <% User.all.each do |user| %>
-      <li><%= user.id %> | <%= user.name %> | <%= user.email %></li>
+       &nbsp;&nbsp;  &nbsp;&nbsp;
+      <tr class="UserTable-row">
+        <td class="UserTable-detail"><%= user.name %></td>
+        <td class="UserTable-detail"><%= user.email %></td>
+        <td class="UserTable-detail"><%= user.role %></td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
 </section>

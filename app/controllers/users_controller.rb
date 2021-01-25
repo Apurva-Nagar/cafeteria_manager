@@ -1,17 +1,14 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_user_is_owner, only: [:new, :create]
 
   def index
-    if current_user && current_user.role === "owner"
-      render "index"
-    else
-      redirect_to menu_items_path
-    end
+    render "index"
   end
 
   def new
     if current_user
-      redirect_to menu_items_path
+      redirect_to menus_path
     else
       render "new"
     end

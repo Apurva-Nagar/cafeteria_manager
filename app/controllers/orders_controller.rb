@@ -1,10 +1,8 @@
 class OrdersController < ApplicationController
+  skip_before_action :ensure_user_is_owner, only: [:create]
+
   def index
-    if current_user.role === "owner"
-      render "index"
-    else
-      redirect_to menu_items_path
-    end
+    render "index"
   end
 
   def create

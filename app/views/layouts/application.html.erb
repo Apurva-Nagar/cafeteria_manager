@@ -10,13 +10,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="CafeteriaAppBody">
-    <% if @current_user %>
-      <p class="UserHeader">
-        Welcome, <%= @current_user.name %>
-        <%= link_to "Sign-out", destroy_session_path, method: "delete" %>
-      </p>
-    <% end %>
+  <body>
+    <nav class="Navbar">
+      <h2 class="Navbar-brand">COCO Cafe Manager</h2>
+      <ul class="Navbar-container">
+        <li class="Navbar-item"><%= link_to "Home", "/" %></li>
+        <% if @current_user %>
+          <li class="Navbar-item"><%= link_to "Sign-out", destroy_session_path, method: "delete" %></li>
+        <% else %>
+          <li class="Navbar-item">
+            <div class="Navbar-item-highlight">
+              <%= link_to "Sign-up", new_user_path %>
+            </div>
+          </li>
+          <li class="Navbar-item"><%= link_to "Sign-in", new_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

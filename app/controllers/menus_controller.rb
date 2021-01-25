@@ -11,7 +11,7 @@ class MenusController < ApplicationController
       name: name,
     )
     if new_menu.save
-      redirect_to menus_path
+      redirect_to menu_items_path
     else
       render plain: "ERROR: Menu not added"
     end

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     if current_user && current_user.role === "owner"
-      render plain: User.all.map { |user| user.to_pleasant_string }.join("\n")
+      render "index"
     else
       redirect_to menu_items_path
     end

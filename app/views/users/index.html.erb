@@ -1,0 +1,8 @@
+<section>
+  <h3>List of users:</h3>
+  <ul>
+    <% User.all.each do |user| %>
+      <li><%= user.id %> | <%= user.name %> | <%= user.email %></li>
+    <% end %>
+  </ul>
+</section>

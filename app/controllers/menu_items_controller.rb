@@ -1,6 +1,4 @@
 class MenuItemsController < ApplicationController
-  skip_before_action :ensure_user_is_owner, only: [:index]
-
   def index
     render "index"
   end

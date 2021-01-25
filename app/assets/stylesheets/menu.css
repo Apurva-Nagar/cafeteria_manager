@@ -22,7 +22,7 @@
 .AddMenu {
   display: flex;
   height: 32px;
-  align-s: stretch;
+  align-self: stretch;
   margin-bottom: 24px;
 }
 

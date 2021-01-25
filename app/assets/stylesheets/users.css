@@ -1,26 +1,53 @@
-.NewUser-title {
-  margin-bottom: 40px;
-  font-size: 30px;
+.NewUserSection {
+  margin: 0 auto;
+  padding: 25px 25px;
+}
+
+.NewUseFormContainer {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 .Form-section {
-  margin-bottom: 30px;
+  margin-top: 25px;
+}
+
+.FormInput-label {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #333;
+  margin-bottom: 8px;
 }
 
 .Form-input {
   font-size: 20px;
   padding: 8px;
-}
-
-.FormInput-label {
-  color: #333;
-  margin-bottom: 8px;
+  border-radius: 2px;
 }
 
 .Form-submit {
   font-size: 20px;
-  padding: 20px;
-  background-color: #0ea86d20;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 15px;
+  margin-left: 60px;
+  background-color: #654335;
+  color: white;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.Form-submit:hover {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 15px;
+  margin-left: 60px;
+  background-color: #51312e;
+  color: white;
   border: 0px;
   border-radius: 4px;
 }

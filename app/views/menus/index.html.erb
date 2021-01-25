@@ -1,14 +1,14 @@
 <main class="MenuMain">
   <h1 class="Menu-title">Menus</h1>
 
-  <div class="AddMenuContainer">
-    <% if @current_user.is_owner %>
+  <% if @current_user.is_owner %>
+    <div class="AddMenuContainer">
       <%= form_with(url: "/menus", method: "post", class: "AddMenu") do %>
         <%= text_field_tag  'name', nil, placeholder: "Breakfast Menu", class: 'AddMenu-text' %>
         <%= submit_tag 'Add', class: 'AddMenu-button' %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <% if @current_user.is_owner %>
     <section class="MenuSection">

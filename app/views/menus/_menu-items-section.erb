@@ -1,13 +1,14 @@
 <section class="MenuSectionDetails">
-  <h3 class="MenuSectionDetails-title"><%= menu_title %></h3>
-  <%= form_with(url: "/orders", method: "post", class: "AddMenuItem") do %>
-    <% menu_items.all.each do |item| %>
-      <li class="MenuItem-item">
-        <%= check_box_tag 'menu_item_ids[]', item.id %>
-          <%= item.name %> |
-          &#8377;<%= item.price %> |
-      </li>
+  <div class="MenuDetailsContainer">
+    <%= form_with(url: "/orders", method: "post") do %>
+      <% menu_items.all.each do |item| %>
+        <li class="MenuItem-item">
+          <%= check_box_tag 'menu_item_ids[]', item.id %>
+          <%= item.name %> &nbsp;&nbsp;
+          &#8377;<%= item.price %>
+        </li>
+      <% end %>
+      <%= submit_tag 'Order', class: 'Order-button' %>
     <% end %>
-    <%= submit_tag 'Order', class: 'AddMenuItem-button' %>
-  <% end %>
+  </div>
 </section>

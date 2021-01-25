@@ -1,25 +1,44 @@
 <main class="MenuMain">
   <h1 class="Menu-title">Menus</h1>
-  <% if @current_user.is_owner %>
-    <%= form_with(url: "/menus", method: "post", class: "AddMenu") do %>
-      <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenu-text' %>
-      <%= submit_tag 'Add', class: 'AddMenu-button' %>
-    <% end %>
-  <% end %>
 
-  <section class="MenuSection">
-    <% Menu.all.each do |menu| %>
-      <% if menu.active %>
-        <p>ACTIVE</p>
+  <div class="AddMenuContainer">
+    <% if @current_user.is_owner %>
+      <%= form_with(url: "/menus", method: "post", class: "AddMenu") do %>
+        <%= text_field_tag  'name', nil, placeholder: "Breakfast Menu", class: 'AddMenu-text' %>
+        <%= submit_tag 'Add', class: 'AddMenu-button' %>
       <% end %>
+    <% end %>
+  </div>
+
+  <% if @current_user.is_owner %>
+    <section class="MenuSection">
+      <% Menu.all.each do |menu| %>
+        <div class="MenuSectionDetail-header">
+          <h3 class="MenuSectionDetails-title"><%= menu.name %></h3>
+          <% if menu.active %>
+            <p class="MenuSectionDetails-active-text">Active Menu</p>
+          <% end %>
+          <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
+            <div class="MenuSectionDetail-checkbox">
+              <p>Mark as active</p>
+              <%= check_box_tag 'Mark as active', nil, checked=menu.active, class: "", onclick: "this.form.submit()" %>
+            </div>
+          <% end %>
+        </div>
+
         <%= render partial: "menu-items-section", locals: {
-          menu_title: menu.name,
           menu_items: menu.menu_items
         } %>
-        <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
-          <%= submit_tag 'Mark as active', class: 'OrderDelivered-button' %>
-        <% end %>
-    <% end %>
-  </section>
-
+      <% end %>
+    </section>
+  <% else %>
+    <section class="MenuSection-customer">
+      <div class="MenuSectionDetail-header">
+        <h3 class="MenuSectionDetails-title"><%= Menu.active_menu.name %></h3>
+      </div>
+      <%= render partial: "menu-items-section", locals: {
+        menu_items: Menu.active_menu.menu_items
+      } %>
+    </section>
+  <% end %>
 </main>

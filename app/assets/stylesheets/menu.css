@@ -1,14 +1,72 @@
+.MenuMain {
+  margin-top: 100px;
+}
+
 .Menu-title {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  font-weight: 600;
+  text-align: center;
   line-height: 1.6;
   color: #453c52;
-  font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .MenuSection {
+  width: 600px;
+  margin: 0 auto;
   margin-bottom: 20px;
   margin-top: 20px;
+  padding: 0px 25px;
+}
+
+.MenuSection-customer {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 500px;
+  padding: 0px 25px;
+}
+
+.MenuSectionDetails-title {
+  font-size: large;
+}
+
+.MenuItem-item {
+  text-decoration: none;
+  list-style: none;
+}
+
+.AddMenuContainer {
+  height: 50px;
+  width: 250px;
+  margin: 0 auto;
+}
+
+.MenuDetailsContainer {
+  margin-bottom: 50px;
+  padding-left: 20px;
+}
+
+.MenuSectionDetail-header {
+  display: flex;
+  height: 25px;
+  align-self: stretch;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.MenuSectionDetail-checkbox {
+  display: flex;
+  height: 25px;
+  align-self: stretch;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.MenuSectionDetails-active-text {
+  color: red;
 }
 
 .Menu-item {
@@ -28,7 +86,7 @@
 
 .AddMenu-text {
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 16px;
   color: #453c52;
   margin-right: 10px;
   border: 1px solid #bfb8cc;
@@ -46,19 +104,42 @@
 
 .AddMenu-button {
   padding: 6px 22px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
-  background-color: #48bb78;
+  background-color: #654335;
   border: 1px solid transparent;
   border-radius: 4px;
 }
 
 .AddMenu-button:hover {
-  padding: 6px 22px;
-  font-size: 14px;
-  color: white;
-  background-color: #187c42;
   cursor: pointer;
+  padding: 6px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #51312e;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Order-button {
+  padding: 6px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #654335;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Order-button:hover {
+  cursor: pointer;
+  padding: 6px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #51312e;
   border: 1px solid transparent;
   border-radius: 4px;
 }

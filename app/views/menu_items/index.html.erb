@@ -1,5 +1,5 @@
 <main class="MenuItemMain">
-  <h1 class="MenuItem-title">Menu Items</h1>
+  <h1 class="MenuItem-title">Add Menu Items</h1>
 
   <% if @current_user.is_owner %>
     <div class="AddMenuItemContainer">
@@ -14,16 +14,18 @@
   <% end %>
 
   <section class="MenuItemSection">
+    <h1 class="MenuItem-title">Available Items</h1>
     <ul>
-      <%= form_with(url: "/orders", method: "post") do %>
-        <% MenuItem.all.each do |item| %>
-            <li class="MenuItem-item">
-              <%= check_box_tag 'menu_item_ids[]', item.id %>
-              <%= item.name %> |
-              &#8377;<%= item.price %>
-            </li>
-        <% end %>
-        <%= submit_tag 'Order', class: 'AddMenuItem-button' %>
+      <% MenuItem.all.each do |item| %>
+        <li class="MenuItem-item">
+          <div class="MenuItem-container">
+            <p class="MenuItem-text"><%= item.name %></p>
+            <p class="MenuItem-text">&#8377;<%= item.price %></p>
+            <%= form_with(url: "/menu_items/#{item.id}", method: "delete") do %>
+              <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
+            <% end %>
+          </div>
+        </li>
       <% end %>
     </ul>
   </section>

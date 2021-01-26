@@ -20,4 +20,11 @@ class MenuItemsController < ApplicationController
       render plain: "ERROR: Menu item not added"
     end
   end
+
+  def destroy
+    id = params[:id]
+    item = MenuItem.find(id)
+    item.destroy
+    redirect_to menu_items_path
+  end
 end

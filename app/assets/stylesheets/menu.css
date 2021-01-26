@@ -38,6 +38,17 @@
   list-style: none;
 }
 
+.MenuItem-text {
+  padding: 0px 5px;
+}
+
+.MenuItem-container {
+  display: flex;
+  width: 300px;
+  justify-content: flex-start;
+  align-content: center;
+}
+
 .AddMenuContainer {
   height: 50px;
   width: 250px;

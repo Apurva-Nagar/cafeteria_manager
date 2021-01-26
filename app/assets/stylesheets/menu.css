@@ -46,7 +46,7 @@
   display: flex;
   width: 300px;
   justify-content: flex-start;
-  align-content: center;
+  align-items: center;
 }
 
 .AddMenuContainer {
@@ -65,7 +65,7 @@
   height: 25px;
   align-self: stretch;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 }
 
 .MenuSectionDetail-checkbox {
@@ -73,7 +73,7 @@
   height: 25px;
   align-self: stretch;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 }
 
 .MenuSectionDetails-active-text {

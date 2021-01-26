@@ -5,7 +5,7 @@
     <div class="AddMenuItemContainer">
       <%= form_with(url: "/menu_items", method: "post") do %>
         <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
-        <%= number_field_tag 'price', nil, step: :any, class: 'AddMenuItem-price' %>
+        <%= number_field_tag 'price', nil, step: :any, placeholder: "\u20B9 100", class: 'AddMenuItem-price' %>
         <%= text_area_tag 'description', nil, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
         <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
         <%= submit_tag 'Add', class: 'AddMenuItem-button' %>

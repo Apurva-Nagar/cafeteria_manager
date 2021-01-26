@@ -18,7 +18,7 @@
           <li class="Navbar-item"><%= link_to "Menu", menus_path %></li>
           <% if @current_user.is_owner %>
             <li class="Navbar-item"><%= link_to "Menu Items", menu_items_path %></li>
-            <li class="Navbar-item"><%= link_to "Order", orders_path %></li>
+            <li class="Navbar-item"><%= link_to "Orders", orders_path %></li>
             <li class="Navbar-item"><%= link_to "Users", users_path %></li>
           <% end %>
           <li class="Navbar-item"><%= link_to "Sign-out", destroy_session_path, method: "delete" %></li>

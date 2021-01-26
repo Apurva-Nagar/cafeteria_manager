@@ -21,6 +21,31 @@ class MenuItemsController < ApplicationController
     end
   end
 
+  def edit
+    @menu_item = MenuItem.find(params[:id])
+    render "edit"
+  end
+
+  def update
+    id = params[:id]
+    name = params[:name]
+    price = params[:price]
+    menu_id = params[:menu_id]
+    description = params[:description]
+
+    @updated_menu_item = MenuItem.find(params[:id])
+    if @updated_menu_item.update(
+      name: name,
+      price: price,
+      menu_id: menu_id,
+      description: description,
+    )
+      redirect_to menu_items_path
+    else
+      render plain: "some error occured"
+    end
+  end
+
   def destroy
     id = params[:id]
     item = MenuItem.find(id)

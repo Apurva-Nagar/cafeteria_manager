@@ -22,8 +22,12 @@ class MenusController < ApplicationController
   def update
     id = params[:id]
     current_active = Menu.find_by active: "true"
-    current_active.active = false
-    current_active.save
+
+    if current_active
+      current_active.update(
+        active: false,
+      )
+    end
 
     update_active_menu = Menu.find(id)
     update_active_menu.update(

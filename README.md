@@ -1,24 +1,36 @@
-# README
+# CSF SaaS Capstone Project - Cafeteria Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This cafeteria management project was built as the capstone project for CSF SaaS.
 
-Things you may want to cover:
+## Tech stack used:
 
-* Ruby version
+- Ruby (2.6.3)
+- Rails (6.1.1)
+- ERB for rendering templates.
+- PostgreSQL
 
-* System dependencies
+## Project Summary
 
-* Configuration
+A dual-user portal with owner and customer accounts that allows creating menus and placing orders.
 
-* Database creation
+## All Features
 
-* Database initialization
+- ### Customer can:
 
-* How to run the test suite
+  - Sign-up to the application, sign-in and sign-out.
+  - Can see a menu of items that can be purchased.
+  - Place an order by selecting items from the menu.
+  - See all of their orders and the delivery status for each order.
 
-* Services (job queues, cache servers, search engines, etc.)
+- ### Owner can:
+  - Create a new menu.
+    - Add items to this menu.
+    - Set a menu as active menu. (only the active menu is visible to the customer)
+  - View, add, delete and edit menu items.
+  - Place an order for walk-in customer.
+  - See incoming orders and mark them as delivered.
+  - See a list of users and their roles.
 
-* Deployment instructions
+## Screenshots
 
-* ...
+![Landing Page](https://octodex.github.com/images/yaktocat.png)

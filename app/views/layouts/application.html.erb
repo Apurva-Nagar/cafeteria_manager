@@ -33,6 +33,12 @@
         <% end %>
       </ul>
     </nav>
+
+    <% if @current_user %>
+      <nav class="UserInformationBar">
+        <h2 class="UserInformationBar-text">Welcome, <%= @current_user.name %> (<%= @current_user.role %>)</h2>
+      </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>

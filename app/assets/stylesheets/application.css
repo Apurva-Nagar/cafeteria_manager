@@ -87,3 +87,23 @@ li > a {
   color: white;
   text-decoration: none;
 }
+
+.UserInformationBar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #353333;
+  margin-top: 60px;
+  padding: 5px 5px;
+}
+
+.UserInformationBar-text {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: whitesmoke;
+}

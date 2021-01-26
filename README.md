@@ -33,4 +33,10 @@ A dual-user portal with owner and customer accounts that allows creating menus a
 
 ## Screenshots
 
-![Landing Page](https://octodex.github.com/images/yaktocat.png)
+![Landing Page](./screenshots/landingpage.png)
+![Owner Order Page](./screenshots/orders-owner.png)
+![Owner Menu Page](./screenshots/menus-owner.png)
+![Owner Menu Items Page](./screenshots/menu-items-owner.png)
+![Owner Edit Menu Items Page](./screenshots/edit-menu-items-owner.png)
+![Customer Menu Page](./screenshots/menu-customer.png)
+![Customer Order Page](./screenshots/orders-customer.png)

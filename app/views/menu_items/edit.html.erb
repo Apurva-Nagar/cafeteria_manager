@@ -7,7 +7,7 @@
         <%= number_field_tag 'price', @menu_item.price, step: :any, placeholder: "\u20B9 100", class: 'AddMenuItem-price' %>
         <%= text_area_tag 'description', @menu_item.description, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
         <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
-        <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
+        <%= submit_tag 'Update', class: 'AddMenuItem-button' %>
       <% end %>
     </div>
   <% end %>

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :ensure_user_is_owner, only: [:create]
+  skip_before_action :ensure_user_is_owner, only: [:create, :index]
 
   def index
     render "index"
@@ -42,7 +42,10 @@ class OrdersController < ApplicationController
     id = params[:id]
     order = Order.find(id)
     order.delivered = !order.delivered
-    order.save!
-    redirect_to orders_path
+    if order.save!
+      redirect_to orders_path
+    else
+      render plain: "some error occurred"
+    end
   end
 end

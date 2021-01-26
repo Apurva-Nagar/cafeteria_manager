@@ -1,5 +1,12 @@
 <section class="OrderItemSection">
-  <h3 class="OrderItem-details">Order ID: <%= order_id %> | Customer: <%= customer_name %></h3>
+  <h3 class="OrderItem-details">
+    Order ID: <%= order_id %>
+    <% if @current_user.is_owner %>
+      | Customer: <%= customer_name %>
+    <% end %>
+    | Status: <%= order_status %>
+    | Date: <%= order_date %>
+  </h3>
   <hr>
   <% order_items.all.each do |item| %>
     <div class="OrderItem-container">

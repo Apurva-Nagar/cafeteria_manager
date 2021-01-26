@@ -5,4 +5,12 @@ class Order < ActiveRecord::Base
   def get_customer_name
     User.find(self.user_id).name
   end
+
+  def get_status
+    if self.delivered
+      "Delivered"
+    else
+      "Not Delivered"
+    end
+  end
 end

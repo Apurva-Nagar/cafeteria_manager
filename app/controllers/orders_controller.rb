@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     menu_item_ids = params[:menu_item_ids]
 
     if User.find(user_id).role === "owner"
-      user_id = 13
+      user_id = 4
     end
 
     if !menu_item_ids

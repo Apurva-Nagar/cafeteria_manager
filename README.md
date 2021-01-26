@@ -31,6 +31,19 @@ A dual-user portal with owner and customer accounts that allows creating menus a
   - See incoming orders and mark them as delivered.
   - See a list of users and their roles.
 
+## Live Link
+
+The project is live on Heroku [here](https://apurva-cafeteria-manager.herokuapp.com/).
+
+Demo account credentials:
+
+- Owner Account
+  - ID: cafeowner@gmail.com
+  - Password: 123456
+- Customer Account
+  - ID: michael@theoffice.com
+  - Password: 123456
+
 ## Screenshots
 
 ![Landing Page](./screenshots/landingpage.png)

@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
         redirect_to menus_path
       end
     else
-      render plain: "Your login attempt was in valid. Please try again."
+      flash[:error] = "Login attempt failed. Invalid credentials."
+      redirect_to new_session_path
     end
   end
 

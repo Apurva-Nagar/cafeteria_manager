@@ -14,7 +14,8 @@ class MenusController < ApplicationController
     if new_menu.save
       redirect_to menu_items_path
     else
-      render plain: "ERROR: Menu not added"
+      flash[:error] = new_menu.errors.full_messages.join(", ")
+      redirect_to menus_path
     end
   end
 
@@ -25,9 +26,9 @@ class MenusController < ApplicationController
     current_active.save
 
     update_active_menu = Menu.find(id)
-    update_active_menu.active = true
-    update_active_menu.save
-
+    update_active_menu.update(
+      active: true,
+    )
     redirect_to menus_path
   end
 end

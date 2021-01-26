@@ -25,7 +25,8 @@ class UsersController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to menu_items_path
     else
-      render plain: "ERROR: User creation failed!"
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to new_user_path
     end
   end
 end

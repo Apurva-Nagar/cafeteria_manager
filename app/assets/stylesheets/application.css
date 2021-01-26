@@ -107,3 +107,16 @@ li > a {
   font-family: sans-serif;
   color: whitesmoke;
 }
+
+.FlashError {
+  padding: 20px 20px;
+  background-color: rgb(201, 44, 44);
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 100px;
+  font-family: sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}

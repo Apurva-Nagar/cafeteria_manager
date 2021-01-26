@@ -10,42 +10,50 @@ class OrdersController < ApplicationController
     user_id = current_user.id
     menu_item_ids = params[:menu_item_ids]
 
-    if User.find(user_id).role == "owner"
+    if User.find(user_id).role === "owner"
       user_id = 13
     end
 
-    current_order = Order.new(
+    if !menu_item_ids
+      flash[:error] = "Please select at least one item to place an order."
+      redirect_to menus_path
+      return
+    end
+
+    new_order = Order.new(
       date: date,
       user_id: user_id,
       delivered: false,
     )
 
-    if current_order.save
+    if new_order.save
       menu_item_ids.each do |id|
         order_item = OrderItem.new(
-          order_id: current_order.id,
+          order_id: new_order.id,
           menu_item_id: id,
           menu_item_name: MenuItem.find(id).name,
           menu_item_price: MenuItem.find(id).price,
         )
         if !order_item.save
-          render plain: "some error occured!"
+          flash[:error] = "Item could not be added to order."
         end
       end
+      redirect_to orders_path
     else
-      render plain: "some error occured!"
+      flash[:error] = "Order creation failed. Please try later."
+      redirect_to menus_path
     end
-    redirect_to orders_path
   end
 
   def update
     id = params[:id]
     order = Order.find(id)
-    order.delivered = !order.delivered
-    if order.save!
+    order.delivered = true
+    if order.save
       redirect_to orders_path
     else
-      render plain: "some error occurred"
+      flash[:error] = "Order status could not be updated."
+      redirect_to orders_path
     end
   end
 end

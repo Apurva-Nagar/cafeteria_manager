@@ -8,6 +8,7 @@ class MenuItemsController < ApplicationController
     price = params[:price]
     menu_id = params[:menu_id]
     description = params[:description]
+
     new_menu_item = MenuItem.new(
       name: name,
       price: price,
@@ -17,7 +18,8 @@ class MenuItemsController < ApplicationController
     if new_menu_item.save
       redirect_to menu_items_path
     else
-      render plain: "ERROR: Menu item not added"
+      flash[:error] = new_menu_item.errors.full_messages.join(", ")
+      redirect_to menu_items_path
     end
   end
 
@@ -34,6 +36,7 @@ class MenuItemsController < ApplicationController
     description = params[:description]
 
     @updated_menu_item = MenuItem.find(params[:id])
+
     if @updated_menu_item.update(
       name: name,
       price: price,
@@ -42,7 +45,8 @@ class MenuItemsController < ApplicationController
     )
       redirect_to menu_items_path
     else
-      render plain: "some error occured"
+      flash[:error] = new_menu.errors.full_messages.join(", ")
+      redirect_to menus_path
     end
   end
 

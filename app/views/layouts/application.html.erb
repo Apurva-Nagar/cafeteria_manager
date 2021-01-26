@@ -41,6 +41,13 @@
         <h2 class="UserInformationBar-text">Welcome, <%= @current_user.name %> (<%= @current_user.role %>)</h2>
       </nav>
     <% end %>
+
+    <% if flash[:error] %>
+      <p class="FlashError">
+        <%= flash[:error] %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

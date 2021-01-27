@@ -44,7 +44,7 @@ Demo account credentials:
   - ID: michael@theoffice.com
   - Password: 123456
 
-## Screenshots
+## Screenshots (Check live link for updated features)
 
 ![Landing Page](./screenshots/landingpage.png)
 ![Owner Order Page](./screenshots/orders-owner.png)

@@ -3,11 +3,12 @@
 
   <% if @current_user.is_owner %>
     <div class="AddMenuItemContainer">
-      <%= form_with(url: "/menu_items", method: "post") do %>
+      <%= form_with(url: "/menu_items", method: "post") do |form| %>
         <%= text_field_tag 'name', nil, placeholder: "Ex- Pizza", class: 'AddMenuItem-text' %>
         <%= number_field_tag 'price', nil, step: :any, placeholder: "\u20B9 100", class: 'AddMenuItem-price' %>
         <%= text_area_tag 'description', nil, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
         <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
+        <%= form.file_field :picture, direct_upload: true %>
         <%= submit_tag 'Add', class: 'AddMenuItem-button' %>
       <% end %>
     </div>
@@ -19,6 +20,9 @@
       <% MenuItem.all.each do |item| %>
         <li class="MenuItem-item">
           <div class="MenuItem-container">
+            <% if item.picture.attached? %>
+              <%= cl_image_tag(item.picture.key, :effect=>"sharpen:100", :height=>150, :radius=>5, :width=>150, :crop=>"scale", :format=>"PNG") %>
+            <% end %>
             <p class="MenuItem-text"><%= item.name %></p>
             <p class="MenuItem-text">&#8377;<%= item.price %></p>
             <%= form_with(url: "/menu_items/#{item.id}", method: "delete") do %>

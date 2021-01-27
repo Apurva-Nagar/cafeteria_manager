@@ -2,11 +2,12 @@
   <h1 class="MenuItem-title">Edit Menu Item</h1>
   <% if @current_user.is_owner %>
     <div class="AddMenuItemContainer">
-      <%= form_with(url: "/menu_items/#{@menu_item.id}", method: "put") do %>
+      <%= form_with(url: "/menu_items/#{@menu_item.id}", method: "put") do |form| %>
         <%= text_field_tag 'name', @menu_item.name, class: 'AddMenuItem-text' %>
         <%= number_field_tag 'price', @menu_item.price, step: :any, placeholder: "\u20B9 100", class: 'AddMenuItem-price' %>
         <%= text_area_tag 'description', @menu_item.description, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
         <%= select_tag "menu_id", options_from_collection_for_select(Menu.all, "id", "name"), class: 'AddMenuItem-menu-options' %>
+        <%= form.file_field :picture, direct_upload: true, value: @menu_item.picture %>
         <%= submit_tag 'Update', class: 'AddMenuItem-button' %>
       <% end %>
     </div>

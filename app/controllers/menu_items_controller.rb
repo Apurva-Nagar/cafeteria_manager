@@ -36,15 +36,28 @@ class MenuItemsController < ApplicationController
     price = params[:price]
     menu_id = params[:menu_id]
     description = params[:description]
+    picture = params[:picture]
 
-    @updated_menu_item = MenuItem.find(id)
+    @menu_item = MenuItem.find(id)
 
-    if @updated_menu_item.update(
-      name: name,
-      price: price,
-      menu_id: menu_id,
-      description: description,
-    )
+    if picture
+      updated_menu_item = @menu_item.update(
+        name: name,
+        price: price,
+        menu_id: menu_id,
+        description: description,
+        picture: picture,
+      )
+    else
+      updated_menu_item = @menu_item.update(
+        name: name,
+        price: price,
+        menu_id: menu_id,
+        description: description,
+      )
+    end
+
+    if updated_menu_item
       redirect_to menu_items_path
     else
       flash[:error] = new_menu.errors.full_messages.join(", ")

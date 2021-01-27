@@ -44,7 +44,7 @@
 
 .MenuItem-container {
   display: flex;
-  width: 300px;
+  width: 500px;
   justify-content: flex-start;
   align-items: center;
 }

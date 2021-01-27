@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :orders, :dependent => :delete_all
   has_secure_password
   validates :name, presence: true

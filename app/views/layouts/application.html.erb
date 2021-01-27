@@ -23,6 +23,11 @@
           <% else %>
             <li class="Navbar-item"><%= link_to "Your Orders", orders_path %></li>
           <% end %>
+          <% if @current_user.avatar.attached? %>
+            <li class="Navbar-item">
+              <%= cl_image_tag(@current_user.avatar.key, :effect=>"sharpen:100", :height=>42, :radius=>30, :width=>42, :crop=>"scale", :format=>"PNG") %>
+            </li>
+          <% end %>
           <li class="Navbar-item"><%= link_to "Sign-out", destroy_session_path, method: "delete" %></li>
         <% else %>
           <li class="Navbar-item"><%= link_to "Home", "/" %></li>

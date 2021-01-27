@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       role: "customer",
       email: params[:email],
       password: params[:password],
+      avatar: params[:avatar],
     )
     if user.save
       session[:current_user_id] = user.id

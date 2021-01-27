@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: cafe-media
+  api_key: '222437812486172'
+  api_secret: ew-hcJvhLBDRemsoLqF3t8Fnxpw
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: cafe-media
+  api_key: '222437812486172'
+  api_secret: ew-hcJvhLBDRemsoLqF3t8Fnxpw
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: cafe-media
+  api_key: '222437812486172'
+  api_secret: ew-hcJvhLBDRemsoLqF3t8Fnxpw
+  enhance_image_tag: true
+  static_file_support: false

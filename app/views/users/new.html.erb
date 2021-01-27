@@ -14,6 +14,10 @@
       <%= form.password_field :password, class: "Form-input", required: true %>
     </div>
     <div class="Form-section">
+      <p class="FormInput-label">Profile Picture</p>
+      <%= form.file_field :avatar, direct_upload: true %>
+    </div>
+    <div class="Form-section">
       <%= form.submit "Sign up", class: "Form-submit" %>
     </div>
   <% end %>

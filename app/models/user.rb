@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :orders
+  has_many :orders, :dependent => :delete_all
   has_secure_password
   validates :name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }

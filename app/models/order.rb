@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :order_items, :dependent => :delete_all
   belongs_to :user
 
   def get_customer_name

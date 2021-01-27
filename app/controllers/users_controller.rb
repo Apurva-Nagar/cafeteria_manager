@@ -29,4 +29,14 @@ class UsersController < ApplicationController
       redirect_to new_user_path
     end
   end
+
+  def destroy
+    id = params[:id]
+    if User.find(id).destroy
+      redirect_to users_path
+    else
+      flash[:error] = "User account could not be deleted."
+      redirect_to users_path
+    end
+  end
 end

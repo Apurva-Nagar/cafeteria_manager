@@ -3,8 +3,9 @@
   <table class="UserTable">
     <tr class="UserTable-row">
       <th class="UserTable-head">Name</th>
-      <th class="UserTable-head" >Email</th>
+      <th class="UserTable-head">Email</th>
       <th class="UserTable-head">Role</th>
+      <th class="UserTable-head">Delete</th>
     </tr>
     <% User.all.each do |user| %>
        &nbsp;&nbsp;  &nbsp;&nbsp;
@@ -12,6 +13,13 @@
         <td class="UserTable-detail"><%= user.name %></td>
         <td class="UserTable-detail"><%= user.email %></td>
         <td class="UserTable-detail"><%= user.role %></td>
+        <% if !user.is_owner %>
+          <td class="UserTable-detail">
+            <%= form_with(url: "/users/#{user.id}", method: "delete") do %>
+              <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </table>

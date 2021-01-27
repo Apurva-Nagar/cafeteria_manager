@@ -35,7 +35,7 @@ class MenuItemsController < ApplicationController
     menu_id = params[:menu_id]
     description = params[:description]
 
-    @updated_menu_item = MenuItem.find(params[:id])
+    @updated_menu_item = MenuItem.find(id)
 
     if @updated_menu_item.update(
       name: name,

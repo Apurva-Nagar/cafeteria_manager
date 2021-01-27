@@ -1,0 +1,21 @@
+<section class="NewUserSection">
+  <div class="NewUseFormContainer">
+  <%= form_with(url: "/users/#{@current_user.id}", method: "put") do |form| %>
+    <div class="Form-section">
+      <p class="FormInput-label">Name</p>
+      <%= form.text_field :name, class: "Form-input", :value => @current_user.name,required: true %>
+    </div>
+    <div class="Form-section">
+      <p class="FormInput-label">Email</p>
+      <%= form.email_field :email, class: "Form-input", value: @current_user.email, required: true %>
+    </div>
+    <div class="Form-section">
+      <p class="FormInput-label">Profile Picture</p>
+      <%= form.file_field :avatar, direct_upload: true %>
+    </div>
+    <div class="Form-section">
+      <%= form.submit "Update", class: "Form-submit" %>
+    </div>
+  <% end %>
+  </div>
+</section>

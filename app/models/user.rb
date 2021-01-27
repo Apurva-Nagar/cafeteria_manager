@@ -5,7 +5,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :email, uniqueness: true
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
+  validates :password, length: { minimum: 6 }, on: :update, allow_blank: true
 
   def is_owner
     self.role === "owner"

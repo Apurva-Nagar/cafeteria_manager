@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :ensure_user_logged_in
-  skip_before_action :ensure_user_is_owner, only: [:new, :create]
+  skip_before_action :ensure_user_logged_in, only: [:new, :create]
+  skip_before_action :ensure_user_is_owner, only: [:new, :create, :edit, :update]
 
   def index
     render "index"
@@ -28,6 +28,30 @@ class UsersController < ApplicationController
     else
       flash[:error] = user.errors.full_messages.join(", ")
       redirect_to new_user_path
+    end
+  end
+
+  def edit
+    render "edit"
+  end
+
+  def update
+    id = params[:id]
+    name = params[:name]
+    email = params[:email]
+    avatar = params[:avatar]
+
+    edit_user = User.find(id)
+
+    if edit_user.update(
+      name: name,
+      email: email,
+      avatar: avatar,
+    )
+      redirect_to menus_path
+    else
+      flash[:error] = "Couldn't updated user details."
+      redirect_to request.referrer
     end
   end
 

@@ -1,5 +1,5 @@
 class Menu < ActiveRecord::Base
-  has_many :menu_items
+  has_many :menu_items, :dependent => :delete_all
   validates :name, presence: true
 
   def self.active_menu

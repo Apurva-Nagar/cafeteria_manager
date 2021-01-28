@@ -16,6 +16,9 @@
         <div class="MenuSectionDetail-header">
           <h3 class="MenuSectionDetails-title"><%= menu.name %></h3>
           <%= link_to image_tag("edit.png"), "/menus/#{menu.id}/edit" %>
+          <%= form_with(url: "/menus/#{menu.id}", method: "delete") do %>
+            <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
+          <% end %>
           <% if menu.active %>
             <p class="MenuSectionDetails-active-text">Active Menu</p>
           <% end %>

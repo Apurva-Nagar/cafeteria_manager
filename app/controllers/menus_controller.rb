@@ -55,4 +55,14 @@ class MenusController < ApplicationController
       redirect_to request.referrer
     end
   end
+
+  def destroy
+    id = params[:id]
+    if Menu.find(id).destroy
+      redirect_to menus_path
+    else
+      flash[:error] = "Menu could not be deleted."
+      redirect_to menus_path
+    end
+  end
 end

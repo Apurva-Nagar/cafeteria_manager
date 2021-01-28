@@ -1,0 +1,9 @@
+<main class="MenuMain">
+  <h1 class="Menu-title">Edit Menu</h1>
+  <div class="AddMenuContainer">
+    <%= form_with(url: "/menus/#{@menu.id}/details", method: "put", class: "AddMenu") do %>
+      <%= text_field_tag  'name', @menu.name, placeholder: "Breakfast Menu", class: 'AddMenu-text' %>
+      <%= submit_tag 'Update', class: 'AddMenu-button' %>
+    <% end %>
+  </div>
+</main>

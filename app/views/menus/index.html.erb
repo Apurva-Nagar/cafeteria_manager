@@ -15,6 +15,7 @@
       <% Menu.order(active: :desc).each do |menu| %>
         <div class="MenuSectionDetail-header">
           <h3 class="MenuSectionDetails-title"><%= menu.name %></h3>
+          <%= link_to image_tag("edit.png"), "/menus/#{menu.id}/edit" %>
           <% if menu.active %>
             <p class="MenuSectionDetails-active-text">Active Menu</p>
           <% end %>

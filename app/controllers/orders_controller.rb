@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
     order = Order.find(id)
     order.delivered = true
     if order.save
+      flash[:success] = "Order with ID #{id} marked as delivered."
       redirect_to orders_path
     else
       flash[:error] = "Order status could not be updated."

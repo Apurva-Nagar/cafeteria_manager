@@ -57,6 +57,12 @@
       </p>
     <% end %>
 
+    <% if flash[:success] %>
+      <p class="FlashSuccess">
+        <%= flash[:success] %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

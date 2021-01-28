@@ -9,7 +9,8 @@
             customer_name: order.get_customer_name,
             order_date: order.date,
             order_status: order.get_status,
-            order_items: order.order_items
+            order_items: order.order_items,
+            order_total: order.total
           } %>
 
           <%= form_with(url: "/orders/#{order.id}", method: "put") do %>
@@ -26,7 +27,8 @@
           order_id: order.id,
           order_date: order.date,
           order_status: order.get_status,
-          order_items: order.order_items
+          order_items: order.order_items,
+            order_total: order.total
         } %>
       </div>
     <% end %>

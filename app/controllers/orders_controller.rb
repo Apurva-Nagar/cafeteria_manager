@@ -26,6 +26,8 @@ class OrdersController < ApplicationController
       delivered: false,
     )
 
+    order_total = 0.0
+
     if new_order.save
       menu_item_ids.each do |id|
         order_item = OrderItem.new(
@@ -34,11 +36,19 @@ class OrdersController < ApplicationController
           menu_item_name: MenuItem.find(id).name,
           menu_item_price: MenuItem.find(id).price,
         )
+        order_total += order_item.menu_item_price
         if !order_item.save
           flash[:error] = "Item could not be added to order."
         end
       end
-      redirect_to orders_path
+      if new_order.update(
+        total: order_total,
+      )
+        redirect_to orders_path
+      else
+        flash[:error] = "Order could not be placed."
+        redirect_to menus_path
+      end
     else
       flash[:error] = "Order creation failed. Please try later."
       redirect_to menus_path

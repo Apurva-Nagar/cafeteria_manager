@@ -1,0 +1,9 @@
+<section class="MenuSectionDetails">
+    <% menu_items.all.each do |item| %>
+      <div class="EditMenu-details">
+        <%= text_field_tag 'name[]', item.name, class: 'AddMenuItem-text' %>
+        <%= number_field_tag 'price[]', item.price, step: :any, placeholder: "\u20B9 100", class: 'AddMenuItem-price' %>
+        <%= text_area_tag 'description[]', item.description, placeholder: "Describe the item.", class: 'AddMenuItem-description' %>
+      </div>
+    <% end %>
+</section>

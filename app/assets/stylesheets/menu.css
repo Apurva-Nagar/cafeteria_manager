@@ -1,5 +1,6 @@
 .MenuMain {
   margin-top: 100px;
+  margin-bottom: 10px;
 }
 
 .Menu-title {
@@ -27,6 +28,10 @@
   margin-top: 20px;
   margin-left: 500px;
   padding: 0px 25px;
+}
+
+.EditMenu-details {
+  margin-bottom: 20px;
 }
 
 .MenuSectionDetails-title {
@@ -144,4 +149,18 @@
   background-color: #51312e;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+
+.EditMenu {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.EditMenu-items {
+  display: flex;
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 15px;
+  margin-right: 20px;
 }

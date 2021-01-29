@@ -11,7 +11,7 @@ This cafeteria management project was built as the capstone project for CSF SaaS
 
 ## Project Summary
 
-A dual-user portal with owner and customer accounts that allows creating menus and placing orders.
+A multi-user portal with owner, customer and billing clerk accounts, that allows creating menus and placing orders.
 
 ## All Features
 
@@ -23,6 +23,7 @@ A dual-user portal with owner and customer accounts that allows creating menus a
   - See all of their orders and the delivery status for each order.
 
 - ### Owner can:
+
   - Create a new menu.
     - Add items to this menu.
     - Set a menu as active menu. (only the active menu is visible to the customer)
@@ -30,6 +31,10 @@ A dual-user portal with owner and customer accounts that allows creating menus a
   - Place an order for walk-in customer.
   - See incoming orders and mark them as delivered.
   - See a list of users and their roles.
+
+- ### Billing clerk can:
+  - Place an order for walk-in customer.
+  - See incoming orders and marl them as delivered.
 
 ## Live Link
 
@@ -42,6 +47,9 @@ Demo account credentials:
   - Password: 123456
 - Customer Account
   - ID: michael@theoffice.com
+  - Password: 123456
+- Billing Clerk Account:
+  - ID: clerk1@gmail.com
   - Password: 123456
 
 ## Screenshots (Check live link for updated features)

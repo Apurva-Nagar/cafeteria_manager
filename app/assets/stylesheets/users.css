@@ -70,6 +70,7 @@
 
 .UserTable {
   border-collapse: collapse;
+  margin-bottom: 25px;
 }
 
 .UserTable-head {
@@ -84,4 +85,16 @@
 
 .UserTable-row:hover {
   background: #d1d1d1;
+}
+
+.Add-User-Clerk {
+  margin-top: 15px;
+  text-decoration: none;
+  background-color: #654335;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: sans-serif;
+  padding: 10px 10px;
+  border-radius: 5px;
 }

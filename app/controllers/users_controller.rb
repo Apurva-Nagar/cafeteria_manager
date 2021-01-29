@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    if current_user
+    if current_user && !current_user.is_owner
       redirect_to menus_path
     else
       render "new"
@@ -15,16 +15,28 @@ class UsersController < ApplicationController
   end
 
   def create
+    # if current_user && current_user.is_owner
+    #   role = "billing clerk"
+    # else
+    #   role = "customer"
+    # end
+
+    role = current_user && current_user.is_owner ? "billing clerk" : "customer"
+
     user = User.new(
       name: params[:name],
-      role: "customer",
+      role: role,
       email: params[:email],
       password: params[:password],
       avatar: params[:avatar],
     )
     if user.save
-      session[:current_user_id] = user.id
-      redirect_to menu_items_path
+      if user.role != "billing clerk"
+        session[:current_user_id] = user.id
+        redirect_to menu_items_path
+      else
+        redirect_to users_path
+      end
     else
       flash[:error] = user.errors.full_messages.join(", ")
       redirect_to new_user_path

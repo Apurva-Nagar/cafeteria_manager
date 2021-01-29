@@ -1,7 +1,7 @@
 <section class="OrderItemSection">
   <h3 class="OrderItem-details">
     Order ID: <%= order_id %>
-    <% if @current_user.is_owner %>
+    <% if @current_user.is_owner || @current_user.is_clerk %>
       | Customer: <%= customer_name %>
     <% end %>
     | Status: <%= order_status %>

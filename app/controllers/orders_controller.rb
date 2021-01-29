@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  skip_before_action :ensure_user_is_owner, only: [:create, :index]
+  skip_before_action :ensure_user_is_owner
+  skip_before_action :ensure_user_is_owner_or_clerk, only: [:create, :index]
 
   def index
     render "index"
@@ -10,7 +11,7 @@ class OrdersController < ApplicationController
     user_id = current_user.id
     menu_item_ids = params[:menu_item_ids]
 
-    if @current_user.is_owner
+    if @current_user.is_owner || @current_user.is_clerk
       user_id = 4
     end
 

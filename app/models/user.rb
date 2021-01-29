@@ -12,6 +12,10 @@ class User < ApplicationRecord
     self.role === "owner"
   end
 
+  def is_clerk
+    self.role === "billing clerk"
+  end
+
   def get_current_user_orders
     self.orders.order(id: :desc)
   end

@@ -20,6 +20,8 @@
             <li class="Navbar-item"><%= link_to "Menu Items", menu_items_path %></li>
             <li class="Navbar-item"><%= link_to "Orders", orders_path %></li>
             <li class="Navbar-item"><%= link_to "Users", users_path %></li>
+          <% elsif @current_user.is_clerk %>
+            <li class="Navbar-item"><%= link_to "Orders", orders_path %></li>
           <% else %>
             <li class="Navbar-item"><%= link_to "Your Orders", orders_path %></li>
           <% end %>

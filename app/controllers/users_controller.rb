@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in, only: [:new, :create]
   skip_before_action :ensure_user_is_owner, only: [:new, :create, :edit, :update]
+  skip_before_action :ensure_user_is_owner_or_clerk
 
   def index
     render "index"
@@ -15,12 +16,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # if current_user && current_user.is_owner
-    #   role = "billing clerk"
-    # else
-    #   role = "customer"
-    # end
-
     role = current_user && current_user.is_owner ? "billing clerk" : "customer"
 
     user = User.new(

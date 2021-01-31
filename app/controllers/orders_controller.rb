@@ -10,11 +10,11 @@ class OrdersController < ApplicationController
     date = Date.today
     user_id = current_user.id
 
+    cart = Cart.find_by user_id: user_id
+
     if @current_user.is_owner || @current_user.is_clerk
       user_id = 4
     end
-
-    cart = Cart.find_by user_id: user_id
 
     new_order = Order.new(
       date: date,

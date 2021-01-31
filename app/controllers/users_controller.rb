@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       avatar: params[:avatar],
     )
     if user.save
-      cart_user_id = user.is_owner || user.is_clerk ? 4 : user.id
+      cart_user_id = user.id
       user_cart = Cart.new(
         user_id: cart_user_id,
         total: 0,

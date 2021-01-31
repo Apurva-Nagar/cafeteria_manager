@@ -32,4 +32,20 @@ class CartItemsController < ApplicationController
 
     redirect_to cart_index_path
   end
+
+  def destroy
+    id = params[:id]
+    cart_item = CartItem.find(id)
+    cart = Cart.find(cart_item.cart_id)
+    updated_cart_price = cart.total - (cart_item.menu_item_price * cart_item.menu_item_quantity)
+    if cart_item.destroy
+      cart.update(
+        total: updated_cart_price,
+      )
+      redirect_to cart_index_path
+    else
+      flash[:error] = "Item could not be deleted from cart."
+      redirect_to menus_path
+    end
+  end
 end

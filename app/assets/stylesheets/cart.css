@@ -1,0 +1,53 @@
+.CartSection {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 600px;
+}
+
+.Cart-title {
+  font-size: 30px;
+  font-weight: 600;
+  font-weight: 600;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 1.6;
+  color: #453c52;
+  margin-bottom: 20px;
+}
+
+.CartItem-item {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.CartItem-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CartItem-price {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: rgb(68, 218, 31);
+}
+
+.CartItem-controls {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.CartTotal {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: sans-serif;
+  text-align: right;
+  color: rgb(36, 151, 8);
+}
+
+.CartOrderForm {
+  display: flex;
+}

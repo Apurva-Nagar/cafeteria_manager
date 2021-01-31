@@ -26,11 +26,18 @@ class UsersController < ApplicationController
       avatar: params[:avatar],
     )
     if user.save
-      if !user.is_clerk
-        session[:current_user_id] = user.id
-        redirect_to menu_items_path
-      else
-        redirect_to users_path
+      cart_user_id = user.id
+      user_cart = Cart.new(
+        user_id: cart_user_id,
+        total: 0,
+      )
+      if user_cart.save
+        if user.role != "billing clerk"
+          session[:current_user_id] = user.id
+          redirect_to menu_items_path
+        else
+          redirect_to users_path
+        end
       end
     else
       flash[:error] = user.errors.full_messages.join(", ")

@@ -8,49 +8,41 @@ class OrdersController < ApplicationController
 
   def create
     date = Date.today
-    user_id = @current_user.is_owner || @current_user.is_clerk ? 4 : current_user.id
-    menu_item_ids = params[:menu_item_ids]
+    user_id = current_user.id
 
-    if !menu_item_ids
-      flash[:error] = "Please select at least one item to place an order."
-      redirect_to menus_path
-      return
+    cart = Cart.find_by user_id: user_id
+
+    if @current_user.is_owner || @current_user.is_clerk
+      user_id = 4
     end
 
     new_order = Order.new(
       date: date,
       user_id: user_id,
       delivered: false,
+      total: cart.total,
     )
 
-    order_total = 0.0
-
     if new_order.save
-      menu_item_ids.each do |id|
+      cart.cart_items.each do |item|
         order_item = OrderItem.new(
           order_id: new_order.id,
-          menu_item_id: id,
-          menu_item_name: MenuItem.find(id).name,
-          menu_item_price: MenuItem.find(id).price,
+          menu_item_id: item.menu_item_id,
+          menu_item_name: item.menu_item_name,
+          menu_item_price: item.menu_item_price,
+          quantity: item.menu_item_quantity,
         )
-        order_total += order_item.menu_item_price
         if !order_item.save
           flash[:error] = "Item could not be added to order."
           redirect_to orders_path
           return
         end
       end
-
-      updated_order_total = new_order.update(
-        total: order_total,
+      cart.cart_items.delete_all
+      cart.update(
+        total: 0.0,
       )
-      if updated_order_total
-        redirect_to orders_path
-      else
-        flash[:error] = "Order could not be placed."
-        redirect_to menus_path
-        return
-      end
+      redirect_to orders_path
     else
       flash[:error] = "Order creation failed. Please try later."
       redirect_to menus_path

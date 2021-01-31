@@ -11,7 +11,7 @@
   <% order_items.all.each do |item| %>
     <div class="OrderItem-container">
       <p class="OrderItem-item"><%= item.menu_item_name %></p>
-      <p class="OrderItem-item">&#8377; <%= item.menu_item_price %></p>
+      <p class="OrderItem-item"><%= item.quantity %> * &#8377; <%= item.menu_item_price %></p>
     </div>
   <% end %>
 </section>

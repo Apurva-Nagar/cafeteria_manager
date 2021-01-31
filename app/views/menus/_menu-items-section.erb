@@ -1,7 +1,7 @@
 <section class="MenuSectionDetails">
   <div class="MenuDetailsContainer">
     <% if menu_active %>
-      <%= form_with(url: "/orders", method: "post") do %>
+      <%= form_with(url: "/cart_items", method: "post") do %>
         <% menu_items.all.each do |item| %>
           <li class="MenuItem-item">
             <div class="MenuItem-container">
@@ -10,11 +10,12 @@
               <% end %>
               <p class="MenuItem-text"><%= item.name %></p>
               <p class="MenuItem-text">&#8377;<%= item.price %></p>
-              <%= check_box_tag 'menu_item_ids[]', item.id %>
+              <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-price' %>
+              <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
             </div>
           </li>
         <% end %>
-        <%= submit_tag 'Order', class: 'Order-button' %>
+        <%= submit_tag 'Add To Cart', class: 'Order-button' %>
       <% end %>
     <% else %>
       <% menu_items.all.each do |item| %>

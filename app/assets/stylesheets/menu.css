@@ -130,27 +130,6 @@
   border-radius: 4px;
 }
 
-.Order-button {
-  padding: 6px 22px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background-color: #654335;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.Order-button:hover {
-  cursor: pointer;
-  padding: 6px 22px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background-color: #51312e;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
 .EditMenu {
   display: flex;
   flex-direction: column;

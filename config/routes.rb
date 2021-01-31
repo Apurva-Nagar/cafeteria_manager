@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "/", to: "home#index"
   resources :orders
+  resources :cart
   resources :cart_items
   put "/menus/:id/details", to: "menus#updateDetails"
   resources :menus

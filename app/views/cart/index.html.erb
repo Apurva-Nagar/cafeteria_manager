@@ -1,0 +1,9 @@
+<section class="OrderSection">
+  <h3 class="Order-title">Your Cart</h3>
+  <% Cart.get_current_user_cart_items(@current_user.id).each do |item| %>
+    <div class="OrderDetails-wrapper">
+      <p><%= item.menu_item_name %> | <%= item.menu_item_price %> | <%= item.menu_item_quantity %></p>
+    </div>
+  <% end %>
+  <p>Total: <%= Cart.get_current_user_cart(@current_user.id).total %></p>
+</section>

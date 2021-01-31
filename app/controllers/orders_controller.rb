@@ -34,6 +34,8 @@ class OrdersController < ApplicationController
         )
         if !order_item.save
           flash[:error] = "Item could not be added to order."
+          redirect_to orders_path
+          return
         end
       end
       cart.cart_items.delete_all

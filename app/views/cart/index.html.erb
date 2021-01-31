@@ -6,6 +6,12 @@
       <%= form_with(url: "/cart_items/#{item.id}", method: "delete") do %>
         <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
       <% end %>
+      <%= form_with(url: "/cart_items/#{item.id}/decrease", method: "put") do %>
+        <input type="image" src="/minus.png" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
+      <% end %>
+      <%= form_with(url: "/cart_items/#{item.id}/increase", method: "put") do %>
+        <input type="image" src="/add.webp" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
+      <% end %>
       <hr>
     </div>
   <% end %>

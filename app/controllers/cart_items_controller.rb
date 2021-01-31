@@ -33,6 +33,39 @@ class CartItemsController < ApplicationController
     redirect_to cart_index_path
   end
 
+  def increase
+    id = params[:id]
+    cart_item = CartItem.find(id)
+    cart_item.update(
+      menu_item_quantity: cart_item.menu_item_quantity + 1,
+    )
+    cart = Cart.find(cart_item.cart_id)
+    cart.update(
+      total: cart.total + cart_item.menu_item_price,
+    )
+    redirect_to request.referrer
+  end
+
+  def decrease
+    id = params[:id]
+    cart_item = CartItem.find(id)
+    cart = Cart.find(cart_item.cart_id)
+    if cart_item.menu_item_quantity > 1
+      cart_item.update(
+        menu_item_quantity: cart_item.menu_item_quantity - 1,
+      )
+      cart.update(
+        total: cart.total - cart_item.menu_item_price,
+      )
+    else
+      cart.update(
+        total: cart.total - cart_item.menu_item_price,
+      )
+      cart_item.destroy
+    end
+    redirect_to request.referrer
+  end
+
   def destroy
     id = params[:id]
     cart_item = CartItem.find(id)

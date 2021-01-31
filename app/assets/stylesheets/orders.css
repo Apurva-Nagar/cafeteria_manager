@@ -42,6 +42,31 @@
   color: #453c52;
 }
 
+.Order-button {
+  padding: 15px 25px;
+  margin: auto;
+  margin-top: 15px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+  background-color: #654335;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Order-button:hover {
+  cursor: pointer;
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px 25px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+  background-color: #51312e;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
 .OrderItemSection {
   margin-bottom: 20px;
   margin-top: 20px;

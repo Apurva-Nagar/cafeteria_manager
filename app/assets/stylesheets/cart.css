@@ -47,3 +47,7 @@
   text-align: right;
   color: rgb(36, 151, 8);
 }
+
+.CartOrderForm {
+  display: flex;
+}

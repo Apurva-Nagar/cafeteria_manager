@@ -16,6 +16,7 @@
       <ul class="Navbar-container">
         <% if @current_user %>
           <li class="Navbar-item"><%= link_to "Menu", menus_path %></li>
+          <li class="Navbar-item"><%= link_to "Cart", cart_index_path %></li>
           <% if @current_user.is_owner %>
             <li class="Navbar-item"><%= link_to "Menu Items", menu_items_path %></li>
             <li class="Navbar-item"><%= link_to "Orders", orders_path %></li>

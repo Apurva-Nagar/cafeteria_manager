@@ -52,19 +52,24 @@ class MenusController < ApplicationController
     menu = Menu.find(id)
 
     menu.menu_items.all.each_with_index do |item, index|
-      if !item.update(
+      updated_item = item.update(
         name: name[index],
         price: price[index],
         description: description[index],
       )
+
+      if !updated_item
         flash[:error] = "Couldn't update menu item information."
         redirect_to request.referrer
+        return
       end
     end
 
-    if menu.update(
+    updated_menu = menu.update(
       name: menu_name,
     )
+
+    if updated_menu
       redirect_to menus_path
     else
       flash[:error] = "Couldn't update menu information"

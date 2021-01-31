@@ -8,12 +8,8 @@ class OrdersController < ApplicationController
 
   def create
     date = Date.today
-    user_id = current_user.id
+    user_id = @current_user.is_owner || @current_user.is_clerk ? 4 : current_user.id
     menu_item_ids = params[:menu_item_ids]
-
-    if @current_user.is_owner || @current_user.is_clerk
-      user_id = 4
-    end
 
     if !menu_item_ids
       flash[:error] = "Please select at least one item to place an order."
@@ -40,15 +36,20 @@ class OrdersController < ApplicationController
         order_total += order_item.menu_item_price
         if !order_item.save
           flash[:error] = "Item could not be added to order."
+          redirect_to orders_path
+          return
         end
       end
-      if new_order.update(
+
+      updated_order_total = new_order.update(
         total: order_total,
       )
+      if updated_order_total
         redirect_to orders_path
       else
         flash[:error] = "Order could not be placed."
         redirect_to menus_path
+        return
       end
     else
       flash[:error] = "Order creation failed. Please try later."

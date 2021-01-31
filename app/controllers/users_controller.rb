@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       avatar: params[:avatar],
     )
     if user.save
-      if user.role != "billing clerk"
+      if !user.is_clerk
         session[:current_user_id] = user.id
         redirect_to menu_items_path
       else
@@ -48,13 +48,22 @@ class UsersController < ApplicationController
     email = params[:email]
     avatar = params[:avatar]
 
-    edit_user = User.find(id)
+    user = User.find(id)
 
-    if edit_user.update(
-      name: name,
-      email: email,
-      avatar: avatar,
-    )
+    if avatar
+      updated_user = user.update(
+        name: name,
+        email: email,
+        avatar: avatar,
+      )
+    else
+      updated_user = user.update(
+        name: name,
+        email: email,
+      )
+    end
+
+    if updated_user
       redirect_to menus_path
     else
       flash[:error] = "Couldn't updated user details."

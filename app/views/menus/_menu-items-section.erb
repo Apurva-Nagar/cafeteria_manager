@@ -8,10 +8,19 @@
               <% if item.picture.attached? %>
                 <%= cl_image_tag(item.picture.key, :effect=>"sharpen:100", :height=>150, :radius=>5, :width=>150, :crop=>"scale", :format=>"PNG") %>
               <% end %>
-              <p class="MenuItem-text"><%= item.name %></p>
-              <p class="MenuItem-text">&#8377;<%= item.price %></p>
-              <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-price' %>
-              <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
+              <div class="MenuItem-wrapper">
+                <div class="MenuItem-details">
+                  <p class="MenuItem-text"><%= item.name %></p>
+                  <p class="MenuItem-price">&#8377; <%= item.price %></p>
+                </div>
+                <div class="MenuItem-description">
+                  <%= item.description %>
+                </div>
+                <div class="MenuItem-controls">
+                  <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-quantity' %>
+                  <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
+                </div>
+              </div>
             </div>
           </li>
         <% end %>
@@ -21,12 +30,19 @@
       <% menu_items.all.each do |item| %>
         <li class="MenuItem-item">
           <div class="MenuItem-container">
-            <% if item.picture.attached? %>
-              <%= cl_image_tag(item.picture.key, :effect=>"sharpen:100", :height=>150, :radius=>5, :width=>150, :crop=>"scale", :format=>"PNG") %>
-            <% end %>
-            <p class="MenuItem-text"><%= item.name %></p>
-            <p class="MenuItem-text">&#8377;<%= item.price %></p>
-          </div>
+              <% if item.picture.attached? %>
+                <%= cl_image_tag(item.picture.key, :effect=>"sharpen:100", :height=>150, :radius=>5, :width=>150, :crop=>"scale", :format=>"PNG") %>
+              <% end %>
+              <div class="MenuItem-wrapper">
+                <div class="MenuItem-details">
+                  <p class="MenuItem-text"><%= item.name %></p>
+                  <p class="MenuItem-price">&#8377; <%= item.price %></p>
+                </div>
+                <div class="MenuItem-description">
+                  <%= item.description %>
+                </div>
+              </div>
+            </div>
         </li>
       <% end %>
     <% end %>

@@ -43,10 +43,10 @@
 }
 
 .Order-button {
-  padding: 15px 25px;
+  padding: 10px 20px;
   margin: auto;
   margin-top: 15px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   background-color: #654335;
@@ -58,8 +58,8 @@
   cursor: pointer;
   margin: auto;
   margin-top: 15px;
-  padding: 15px 25px;
-  font-size: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   background-color: #51312e;

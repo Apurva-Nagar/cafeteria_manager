@@ -43,17 +43,6 @@
   list-style: none;
 }
 
-.MenuItem-text {
-  padding: 0px 5px;
-}
-
-.MenuItem-container {
-  display: flex;
-  width: 500px;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .AddMenuContainer {
   height: 50px;
   width: 250px;

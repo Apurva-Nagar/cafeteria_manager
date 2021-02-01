@@ -20,6 +20,13 @@
   margin-bottom: 20px;
 }
 
+.MenuItem-container {
+  display: flex;
+  width: 500px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .MenuItem-item {
   font-size: 14px;
   margin-left: 8px;
@@ -58,6 +65,16 @@
   padding: 6px;
   font-size: 14px;
   color: #453c52;
+  margin-right: 10px;
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+}
+
+.AddMenuItem-quantity {
+  padding: 6px;
+  font-size: 14px;
+  color: #453c52;
+  width: 60%;
   margin-right: 10px;
   border: 1px solid #bfb8cc;
   border-radius: 4px;
@@ -129,4 +146,39 @@
   margin-bottom: 6px;
   padding: 0px 10px;
   color: #453c52;
+}
+
+.MenuItem-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.MenuItem-text {
+  padding: 0px 5px;
+  font-size: 20px;
+}
+
+.MenuItem-price {
+  font-size: 18px;
+  color: rgb(68, 218, 31);
+}
+
+.MenuItem-details {
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+  justify-content: space-between;
+}
+
+.MenuItem-controls {
+  display: flex;
+  padding: 10px 10px;
+  width: 18%;
+  justify-content: space-between;
+}
+
+.MenuItem-description {
+  padding: 10px 10px;
+  text-align: justify;
 }

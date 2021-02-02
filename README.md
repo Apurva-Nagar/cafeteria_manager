@@ -19,7 +19,9 @@ A multi-user portal with owner, customer and billing clerk accounts, that allows
 
   - Sign-up to the application, sign-in and sign-out.
   - Can see a menu of items that can be purchased.
-  - Place an order by selecting items from the menu.
+  - Add multiple quantities of selected items to their cart.
+  - Increase and decrease item quantity and remove items form cart.
+  - Place and order for items added to cart.
   - See all of their orders and the delivery status for each order.
 
 - ### Owner can:
@@ -31,10 +33,11 @@ A multi-user portal with owner, customer and billing clerk accounts, that allows
   - Place an order for walk-in customer.
   - See incoming orders and mark them as delivered.
   - See a list of users and their roles.
+  - Create accounts for billing clerks.
 
 - ### Billing clerk can:
   - Place an order for walk-in customer.
-  - See incoming orders and marl them as delivered.
+  - See incoming orders and mark them as delivered.
 
 ## Live Link
 
@@ -58,6 +61,9 @@ Demo account credentials:
 ![Owner Order Page](./screenshots/orders-owner.png)
 ![Owner Menu Page](./screenshots/menus-owner.png)
 ![Owner Menu Items Page](./screenshots/menu-items-owner.png)
-![Owner Edit Menu Items Page](./screenshots/edit-menu-items-owner.png)
+![Owner Edit Menu Items Page](./screenshots/edit-menu-owner.png)
+![Owner Edit Menu Page](./screenshots/edit-menu-item-owner.png)
+![Owner Users List](./screenshots/users.png)
 ![Customer Menu Page](./screenshots/menu-customer.png)
 ![Customer Order Page](./screenshots/orders-customer.png)
+![Customer Cart Page](./screenshots/cart-customer.png)

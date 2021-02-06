@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   put "/cart_items/:id/increase", to: "cart_items#increase"
   resources :cart
   resources :cart_items
-  put "/menus/:id/details", to: "menus#updateDetails"
+  put "/menus/:id/details", to: "menus#update_details"
   resources :menus
   resources :menu_items
   resources :users

@@ -42,7 +42,7 @@ class MenusController < ApplicationController
     redirect_to menus_path
   end
 
-  def updateDetails
+  def update_details
     id = params[:id]
     menu_name = params[:menu_name]
     name = params[:name]

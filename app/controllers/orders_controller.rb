@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :ensure_user_is_owner
-  skip_before_action :ensure_user_is_owner_or_clerk, only: [:create, :index]
+  before_action :ensure_user_is_owner_or_clerk, only: [:update]
 
   def index
     render "index"

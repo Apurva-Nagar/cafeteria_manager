@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :ensure_user_logged_in
-  before_action :ensure_user_is_owner
-  before_action :ensure_user_is_owner_or_clerk
 
   def ensure_user_is_owner_or_clerk
     unless current_user && (current_user.is_owner || current_user.is_clerk)

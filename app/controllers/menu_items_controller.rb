@@ -1,4 +1,6 @@
 class MenuItemsController < ApplicationController
+  before_action :ensure_user_is_owner
+
   def index
     render "index"
   end

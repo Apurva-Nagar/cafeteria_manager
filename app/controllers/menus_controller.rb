@@ -1,6 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_action :ensure_user_is_owner, only: [:index]
-  skip_before_action :ensure_user_is_owner_or_clerk, only: [:index]
+  before_action :ensure_user_is_owner_or_clerk, only: [:create, :edit, :update, :update_details, :destroy]
 
   def index
     render "index"

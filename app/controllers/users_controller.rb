@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in, only: [:new, :create]
-  skip_before_action :ensure_user_is_owner, only: [:new, :create, :edit, :update]
-  skip_before_action :ensure_user_is_owner_or_clerk
+  before_action :ensure_user_is_owner, only: [:index, :destroy]
 
   def index
     render "index"

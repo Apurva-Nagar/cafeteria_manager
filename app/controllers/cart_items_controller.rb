@@ -1,7 +1,4 @@
 class CartItemsController < ApplicationController
-  skip_before_action :ensure_user_is_owner
-  skip_before_action :ensure_user_is_owner_or_clerk
-
   def create
     user_cart_id = Cart.get_current_user_cart(@current_user.id).id
     menu_item_info = params[:menu_item_info]

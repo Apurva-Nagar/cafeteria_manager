@@ -8,39 +8,15 @@ class OrdersController < ApplicationController
   def create
     date = Date.today
     user_id = current_user.id
-
     cart = Cart.find_by user_id: user_id
 
     if @current_user.is_owner || @current_user.is_clerk
       user_id = 4
     end
 
-    new_order = Order.new(
-      date: date,
-      user_id: user_id,
-      delivered: false,
-      total: cart.total,
-    )
+    order_creation_status = Order.create_order(date, user_id, cart)
 
-    if new_order.save
-      cart.cart_items.each do |item|
-        order_item = OrderItem.new(
-          order_id: new_order.id,
-          menu_item_id: item.menu_item_id,
-          menu_item_name: item.menu_item_name,
-          menu_item_price: item.menu_item_price,
-          quantity: item.menu_item_quantity,
-        )
-        if !order_item.save
-          flash[:error] = "Item could not be added to order."
-          redirect_to orders_path
-          return
-        end
-      end
-      cart.cart_items.delete_all
-      cart.update(
-        total: 0.0,
-      )
+    if order_creation_status
       redirect_to orders_path
     else
       flash[:error] = "Order creation failed. Please try later."

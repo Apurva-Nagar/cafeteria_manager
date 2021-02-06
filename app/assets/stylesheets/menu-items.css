@@ -76,6 +76,7 @@
   color: #453c52;
   width: 60%;
   margin-right: 10px;
+  margin-left: 5px;
   border: 1px solid #bfb8cc;
   border-radius: 4px;
 }
@@ -173,9 +174,18 @@
 
 .MenuItem-controls {
   display: flex;
+  flex-direction: column;
   padding: 10px 10px;
-  width: 18%;
+  width: 30%;
   justify-content: space-between;
+}
+
+.MenuItem-control-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
 }
 
 .MenuItem-description {

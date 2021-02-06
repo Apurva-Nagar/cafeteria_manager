@@ -17,8 +17,14 @@
                   <%= item.description %>
                 </div>
                 <div class="MenuItem-controls">
-                  <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-quantity' %>
-                  <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
+                  <div class="MenuItem-control-wrapper">
+                    <p>Qty:</p>
+                    <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-quantity' %>
+                  </div>
+                  <div class="MenuItem-control-wrapper">
+                    <p>Select Item:</p>
+                    <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
+                  </div>
                 </div>
               </div>
             </div>

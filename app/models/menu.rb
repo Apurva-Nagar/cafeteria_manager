@@ -3,7 +3,7 @@ class Menu < ActiveRecord::Base
   validates :name, presence: true
 
   def self.active_menu
-    Menu.find_by active: true
+    find_by active: true
   end
 
   def self.update_details(id, menu_name, name, price, description)

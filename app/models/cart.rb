@@ -9,4 +9,8 @@ class Cart < ActiveRecord::Base
   def self.get_current_user_cart_items(user_id)
     return Cart.get_current_user_cart(user_id).cart_items
   end
+
+  def self.cartIsEmpty?(user_id)
+    get_current_user_cart(user_id).cart_items.length <= 0
+  end
 end

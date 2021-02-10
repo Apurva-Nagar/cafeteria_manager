@@ -1,27 +1,31 @@
 <section class="CartSection">
   <h3 class="Cart-title">Your Cart</h3>
-  <% Cart.get_current_user_cart_items(@current_user.id).order(menu_item_quantity: :desc).each do |item| %>
-    <div class="CartItem-wrapper">
-      <div class="CartItem-details">
-        <p class="CartItem-item"><%= item.menu_item_name %> (Qty: <%= item.menu_item_quantity %>)</p>
-        <p class="CartItem-price">&#8377; <%= item.menu_item_price %></p>
+  <% if !Cart.cartIsEmpty?(@current_user.id) %>
+    <% Cart.get_current_user_cart_items(@current_user.id).order(menu_item_quantity: :desc).each do |item| %>
+      <div class="CartItem-wrapper">
+        <div class="CartItem-details">
+          <p class="CartItem-item"><%= item.menu_item_name %> (Qty: <%= item.menu_item_quantity %>)</p>
+          <p class="CartItem-price">&#8377; <%= item.menu_item_price %></p>
+        </div>
+        <div class="CartItem-controls">
+          <%= form_with(url: "/cart_items/#{item.id}", method: "delete") do %>
+            <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
+          <% end %>
+          <%= form_with(url: "/cart_items/#{item.id}/decrease", method: "put") do %>
+            <input type="image" src="/minus.png" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
+          <% end %>
+          <%= form_with(url: "/cart_items/#{item.id}/increase", method: "put") do %>
+            <input type="image" src="/add.webp" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
+          <% end %>
+        </div>
+        <hr>
       </div>
-      <div class="CartItem-controls">
-        <%= form_with(url: "/cart_items/#{item.id}", method: "delete") do %>
-          <input type="image" src="/delete.png" alt="delete" onclick="this.form.submit()">
-        <% end %>
-        <%= form_with(url: "/cart_items/#{item.id}/decrease", method: "put") do %>
-          <input type="image" src="/minus.png" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
-        <% end %>
-        <%= form_with(url: "/cart_items/#{item.id}/increase", method: "put") do %>
-          <input type="image" src="/add.webp" alt="delete" height="24px" width="24px" onclick="this.form.submit()">
-        <% end %>
-      </div>
-      <hr>
-    </div>
-  <% end %>
-  <p class="CartTotal">Total: &#8377; <%= Cart.get_current_user_cart(@current_user.id).total %></p>
-  <%= form_with(url: "/orders", method: "post", class: "CartOrderForm") do %>
-    <%= submit_tag 'Order', class: 'Order-button' %>
+    <% end %>
+    <p class="CartTotal">Total: &#8377; <%= Cart.get_current_user_cart(@current_user.id).total %></p>
+    <%= form_with(url: "/orders", method: "post", class: "CartOrderForm") do %>
+      <%= submit_tag 'Order', class: 'Order-button' %>
+    <% end %>
+  <% else %>
+    <p class="Cart-empty">Your cart is currently empty.</p>
   <% end %>
 </section>

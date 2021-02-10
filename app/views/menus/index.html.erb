@@ -21,12 +21,13 @@
           <% end %>
           <% if menu.active %>
             <p class="MenuSectionDetails-active-text">Active Menu</p>
-          <% end %>
-          <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
-            <div class="MenuSectionDetail-checkbox">
-              <p>Mark as active</p>
-              <%= check_box_tag 'Mark as active', nil, checked=menu.active, class: "", onclick: "this.form.submit()" %>
-            </div>
+          <% else %>
+            <%= form_with(url: "/menus/#{menu.id}", method: "put") do %>
+              <div class="MenuSectionDetail-checkbox">
+                <p>Mark as active</p>
+                <%= check_box_tag 'Mark as active', nil, checked=menu.active, class: "", onclick: "this.form.submit()" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <%= render partial: "menu-items-section", locals: {

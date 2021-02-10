@@ -47,4 +47,14 @@ class Order < ActiveRecord::Base
   def self.get_report_orders(start_date, end_date)
     where(:created_at => start_date..end_date)
   end
+
+  def self.get_walkin_orders(report_orders)
+    count = 0
+    report_orders.each do |order|
+      if order.user_id == 4
+        count += 1
+      end
+    end
+    count
+  end
 end

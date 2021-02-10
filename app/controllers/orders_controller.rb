@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
     start_date_obj = params[:start_date].to_date.beginning_of_day
     end_date_obj = params[:end_date].to_date.end_of_day
     @report_orders = Order.get_report_orders(start_date_obj, end_date_obj)
+    @walkin_orders = Order.get_walkin_orders(@report_orders)
     render "report"
   end
 end

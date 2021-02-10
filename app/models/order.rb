@@ -43,4 +43,8 @@ class Order < ActiveRecord::Base
       return false
     end
   end
+
+  def self.get_report_orders(start_date, end_date)
+    where(:created_at => start_date..end_date)
+  end
 end

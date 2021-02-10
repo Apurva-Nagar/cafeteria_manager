@@ -1,0 +1,93 @@
+.ReportMain {
+  margin-top: 100px;
+  margin-bottom: 10px;
+}
+
+.Report-title {
+  font-size: 30px;
+  font-weight: 600;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.6;
+  color: #453c52;
+  margin-bottom: 20px;
+}
+
+.FilterReportContainer {
+  height: 50px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.FilterReport {
+  display: flex;
+  height: 32px;
+  width: 100%;
+  align-self: stretch;
+  margin-bottom: 24px;
+}
+
+.FilterReport-date {
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #453c52;
+  margin-right: 10px;
+  border: 1px solid #bfb8cc;
+  border-radius: 4px;
+}
+
+.Filter-button {
+  padding: 6px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #654335;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.Filter-button:hover {
+  cursor: pointer;
+  padding: 6px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #51312e;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.ReportOrders-none {
+  font-family: sans-serif;
+  font-size: large;
+  font-weight: bold;
+  color: #453c52;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.UserReportTable {
+  margin: 0 auto;
+  border-collapse: separate;
+  border: solid #453c52 1px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.UserReportTable-head,
+.UserReportTable-detail {
+  border-left: solid #453c52 1px;
+  border-top: solid #453c52 1px;
+  padding: 8px;
+}
+
+.UserReportTable-head {
+  border-top: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.UserReportTable-detail:first-child,
+.UserReportTable-head:first-child {
+  border-left: none;
+}

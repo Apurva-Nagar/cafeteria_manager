@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :ensure_user_is_owner, only: [:get_report, :show_report]
   before_action :ensure_user_is_owner_or_clerk, only: [:update]
 
   def index
@@ -35,5 +36,18 @@ class OrdersController < ApplicationController
       flash[:error] = "Order status could not be updated."
       redirect_to orders_path
     end
+  end
+
+  def get_report
+    render "report"
+  end
+
+  def show_report
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    start_date_obj = params[:start_date].to_date.beginning_of_day
+    end_date_obj = params[:end_date].to_date.end_of_day
+    @report_orders = Order.get_report_orders(start_date_obj, end_date_obj)
+    render "report"
   end
 end

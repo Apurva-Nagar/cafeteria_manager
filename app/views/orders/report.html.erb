@@ -1,0 +1,34 @@
+<main class="ReportMain">
+  <h1 class="Report-title">Reports</h1>
+  <div class="FilterReportContainer">
+    <%= form_with(url: "/reports", method: "post", class: "FilterReport") do %>
+      <%= date_field_tag  'start_date', value=@start_date, class: 'FilterReport-date' %>
+      <%= date_field_tag  'end_date', value=@end_date, class: 'FilterReport-date' %>
+      <%= submit_tag 'Filter', class: 'Filter-button' %>
+    <% end %>
+  </div>
+
+  <div class="ReportOrders">
+    <% if @report_orders %>
+      <table class="UserReportTable">
+        <tr>
+          <th class="UserReportTable-head">Order ID</th>
+          <th class="UserReportTable-head">Customer</th>
+          <th class="UserReportTable-head">Date</th>
+          <th class="UserReportTable-head">Status</th>
+          <th class="UserReportTable-head">Total</th>
+        </tr>
+        <% @report_orders.all.each do |order| %>
+          <tr>
+            <td class="UserReportTable-detail">#<%= order.id %></td>
+            <td class="UserReportTable-detail"><%= order.get_customer_name %></td>
+            <td class="UserReportTable-detail"><%= order.date %></td>
+            <td class="UserReportTable-detail"><%= order.get_status %></td>
+            <td class="UserReportTable-detail">&#8377; <%= order.total %></td>
+          </tr>
+        <% end %>
+    <% else %>
+      <p class="ReportOrders-none">Select filters to see reports</p>
+    <% end %>
+  </div>
+</main>

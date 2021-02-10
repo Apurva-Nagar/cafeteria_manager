@@ -18,7 +18,7 @@
           <th class="UserReportTable-head">Status</th>
           <th class="UserReportTable-head">Total</th>
         </tr>
-        <% @report_orders.all.each do |order| %>
+        <% @report_orders.order(:date).each do |order| %>
           <tr>
             <td class="UserReportTable-detail">#<%= order.id %></td>
             <td class="UserReportTable-detail"><%= order.get_customer_name %></td>

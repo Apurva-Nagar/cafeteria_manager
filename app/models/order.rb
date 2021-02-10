@@ -57,4 +57,22 @@ class Order < ActiveRecord::Base
     end
     count
   end
+
+  def self.get_max_ordered_item(report_orders)
+    max_count = 0
+    max_item_name = nil
+    report_orders.each do |order|
+      count = 0
+      item_name = nil
+      order.order_items.all.each do |item|
+        item_name = item.menu_item_name
+        count += item.quantity
+      end
+      if max_count < count
+        max_count = count
+        max_item_name = item_name
+      end
+    end
+    max_item_name
+  end
 end

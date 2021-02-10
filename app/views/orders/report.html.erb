@@ -27,7 +27,17 @@
             <td class="UserReportTable-detail">&#8377; <%= order.total %></td>
           </tr>
         <% end %>
-        <p>Walk-in Orders: <%= @walkin_orders %></p>
+      </table>
+      <table class="UserReportTable">
+        <tr>
+          <th class="UserReportTable-head">Walk-in Orders</th>
+          <th class="UserReportTable-head">Max Item Ordered</th>
+        </tr>
+        <tr>
+          <td class="UserReportTable-detail"><%= @walkin_orders %></td>
+          <td class="UserReportTable-detail"><%= @max_item_ordered %></td>
+        </tr>
+      </table>
     <% else %>
       <p class="ReportOrders-none">Select filters to see reports</p>
     <% end %>

@@ -50,6 +50,9 @@ class OrdersController < ApplicationController
     @report_orders = Order.get_report_orders(start_date_obj, end_date_obj)
     @walkin_orders = Order.get_walkin_orders(@report_orders)
     @max_item_ordered = Order.get_max_ordered_item(@report_orders)
+    @min_item_ordered = Order.get_min_ordered_item(@report_orders)
+    @average_order_amount = Order.get_average_order_amount(@report_orders)
+    @sum_orders_total = Order.get_sum_orders_total(@report_orders)
     render "report"
   end
 end

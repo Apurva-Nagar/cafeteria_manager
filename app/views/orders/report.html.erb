@@ -32,10 +32,16 @@
         <tr>
           <th class="UserReportTable-head">Walk-in Orders</th>
           <th class="UserReportTable-head">Max Item Ordered</th>
+          <th class="UserReportTable-head">Min Item Ordered</th>
+          <th class="UserReportTable-head">Avg. Order Amount</th>
+          <th class="UserReportTable-head">Net Order Total</th>
         </tr>
         <tr>
           <td class="UserReportTable-detail"><%= @walkin_orders %></td>
-          <td class="UserReportTable-detail"><%= @max_item_ordered %></td>
+          <td class="UserReportTable-detail"><%= @max_item_ordered[0] %> (<%= @max_item_ordered[1] %>)</td>
+          <td class="UserReportTable-detail"><%= @min_item_ordered[0] %> (<%= @min_item_ordered[1] %>)</td>
+          <td class="UserReportTable-detail">&#8377; <%= @average_order_amount %></td>
+          <td class="UserReportTable-detail">&#8377; <%= @sum_orders_total %></td>
         </tr>
       </table>
     <% else %>

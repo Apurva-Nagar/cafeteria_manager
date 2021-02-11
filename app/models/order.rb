@@ -49,30 +49,24 @@ class Order < ActiveRecord::Base
   end
 
   def self.get_walkin_orders(report_orders)
-    count = 0
-    report_orders.each do |order|
-      if order.user_id == 4
-        count += 1
-      end
-    end
-    count
+    report_orders.where(user_id: 4).count()
   end
 
   def self.get_max_ordered_item(report_orders)
-    max_count = 0
-    max_item_name = nil
-    report_orders.each do |order|
-      count = 0
-      item_name = nil
-      order.order_items.all.each do |item|
-        item_name = item.menu_item_name
-        count += item.quantity
-      end
-      if max_count < count
-        max_count = count
-        max_item_name = item_name
-      end
-    end
-    max_item_name
+    item_name_qty = OrderItem.where(:order_id => report_orders.all.ids).group(:menu_item_name).sum(:quantity)
+    item_name_qty.max_by { |k, v| v }
+  end
+
+  def self.get_min_ordered_item(report_orders)
+    item_name_qty = OrderItem.where(:order_id => report_orders.all.ids).group(:menu_item_name).sum(:quantity)
+    item_name_qty.min_by { |k, v| v }
+  end
+
+  def self.get_average_order_amount(report_orders)
+    report_orders.average(:total)
+  end
+
+  def self.get_sum_orders_total(report_orders)
+    report_orders.sum(:total)
   end
 end

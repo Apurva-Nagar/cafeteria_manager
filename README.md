@@ -34,6 +34,7 @@ A multi-user portal with owner, customer and billing clerk accounts, that allows
   - See incoming orders and mark them as delivered.
   - See a list of users and their roles.
   - Create accounts for billing clerks.
+  - See order reports filtered by date.
 
 - ### Billing clerk can:
   - Place an order for walk-in customer.
@@ -67,3 +68,4 @@ Demo account credentials:
 ![Customer Menu Page](./screenshots/menu-customer.png)
 ![Customer Order Page](./screenshots/orders-customer.png)
 ![Customer Cart Page](./screenshots/cart-customer.png)
+![Owner Report Page](./screenshots/reports-owner.png)

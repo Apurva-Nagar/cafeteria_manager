@@ -11,10 +11,6 @@ class OrdersController < ApplicationController
     user_id = current_user.id
     cart = Cart.find_by user_id: user_id
 
-    # if @current_user.is_owner || @current_user.is_clerk
-    #   user_id = 4
-    # end
-
     order_creation_status = Order.create_order(date, user_id, cart)
 
     if order_creation_status

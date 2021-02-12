@@ -3,7 +3,11 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   def get_customer_name
-    User.find(self.user_id).name
+    user = User.find(self.user_id)
+    if user.is_owner || user.is_clerk
+      return "Walk-in-customer"
+    end
+    user.name
   end
 
   def get_status

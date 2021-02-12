@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
         date: date,
         user_id: user_id,
         delivered: false,
-        total: cart.total,
+        total: Cart.get_cart_total(user_id),
       )
       cart.cart_items.each do |item|
         OrderItem.create!(
@@ -32,7 +32,6 @@ class Order < ActiveRecord::Base
         )
       end
       cart.cart_items.delete_all
-      cart.update!(total: 0.0)
     end
   rescue ActiveRecord::RecordInvalid => exception
     false

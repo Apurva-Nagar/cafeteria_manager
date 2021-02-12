@@ -13,4 +13,9 @@ class Cart < ActiveRecord::Base
   def self.cartIsEmpty?(user_id)
     get_current_user_cart(user_id).cart_items.length <= 0
   end
+
+  def self.get_cart_total(user_id)
+    cart_id = get_current_user_cart(user_id)
+    CartItem.where(:cart_id => cart_id).sum("menu_item_quantity * menu_item_price")
+  end
 end

@@ -21,7 +21,7 @@
         <hr>
       </div>
     <% end %>
-    <p class="CartTotal">Total: &#8377; <%= Cart.get_current_user_cart(@current_user.id).total %></p>
+    <p class="CartTotal">Total: &#8377; <%= Cart.get_cart_total(@current_user.id) %></p>
     <%= form_with(url: "/orders", method: "post", class: "CartOrderForm") do %>
       <%= submit_tag 'Order', class: 'Order-button' %>
     <% end %>

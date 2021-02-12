@@ -2,9 +2,8 @@ class CartItemsController < ApplicationController
   def create
     user_cart_id = Cart.get_current_user_cart(@current_user.id).id
     menu_item_info = params[:menu_item_info]
-    cart_total = Cart.get_current_user_cart(@current_user.id).total
 
-    cart_status = CartItem.add_to_cart(user_cart_id, menu_item_info, cart_total)
+    cart_status = CartItem.add_to_cart(user_cart_id, menu_item_info)
 
     if cart_status
       redirect_to cart_index_path
@@ -21,10 +20,6 @@ class CartItemsController < ApplicationController
     cart_item.update(
       menu_item_quantity: cart_item.menu_item_quantity + 1,
     )
-    cart = Cart.find(cart_item.cart_id)
-    cart.update(
-      total: cart.total + cart_item.menu_item_price,
-    )
     redirect_to request.referrer
   end
 
@@ -36,13 +31,7 @@ class CartItemsController < ApplicationController
       cart_item.update(
         menu_item_quantity: cart_item.menu_item_quantity - 1,
       )
-      cart.update(
-        total: cart.total - cart_item.menu_item_price,
-      )
     else
-      cart.update(
-        total: cart.total - cart_item.menu_item_price,
-      )
       cart_item.destroy
     end
     redirect_to request.referrer
@@ -52,11 +41,7 @@ class CartItemsController < ApplicationController
     id = params[:id]
     cart_item = CartItem.find(id)
     cart = Cart.find(cart_item.cart_id)
-    updated_cart_price = cart.total - (cart_item.menu_item_price * cart_item.menu_item_quantity)
     if cart_item.destroy
-      cart.update(
-        total: updated_cart_price,
-      )
       redirect_to cart_index_path
     else
       flash[:error] = "Item could not be deleted from cart."

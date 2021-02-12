@@ -28,7 +28,6 @@ class UsersController < ApplicationController
       cart_user_id = user.id
       user_cart = Cart.new(
         user_id: cart_user_id,
-        total: 0,
       )
       if user_cart.save
         if user.role != "billing clerk"

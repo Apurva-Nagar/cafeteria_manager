@@ -74,11 +74,25 @@
   padding: 6px;
   font-size: 14px;
   color: #453c52;
-  width: 60%;
+  width: 30%;
   margin-right: 10px;
   margin-left: 5px;
+  text-align: center;
   border: 1px solid #bfb8cc;
   border-radius: 4px;
+  -moz-appearance: textfield;
+}
+
+.AddMenuItem-quantity::-webkit-outer-spin-button,
+.AddMenuItem-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.AddMenuItem-select {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
 }
 
 .AddMenuItem-menu-options {
@@ -198,4 +212,21 @@
 .MenuItem-description {
   padding: 10px 10px;
   text-align: justify;
+}
+
+.MenuItem-decrement-qty {
+  background: url("/minus.png");
+  border: none;
+  text-decoration: none;
+  padding: 0px;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+.MenuItem-increment-qty {
+  background: url("/minus.png");
+  border: none;
+  text-decoration: none;
+  padding: 0px;
+  border-radius: 100%;
 }

@@ -1,8 +1,21 @@
+<script>
+  function decrementQuantity(id) {
+    let qty = document.getElementById(id).value;
+    if (qty > 1) {
+      document.getElementById(id).value = qty - 1;
+    }
+  }
+
+  function incrementQuantity(id) {
+    document.getElementById(id).value = parseInt(document.getElementById(id).value) + 1;
+  }
+</script>
+
 <section class="MenuSectionDetails">
   <div class="MenuDetailsContainer">
     <% if menu_active %>
       <%= form_with(url: "/cart_items", method: "post") do %>
-        <% menu_items.all.each do |item| %>
+        <% menu_items.all.each_with_index do |item, index| %>
           <li class="MenuItem-item">
             <div class="MenuItem-container">
               <% if item.picture.attached? %>
@@ -19,11 +32,17 @@
                 <div class="MenuItem-order-controls">
                   <div class="MenuItem-control-wrapper">
                     <p>Qty:</p>
-                    <%= number_field_tag 'menu_item_info[]info[quantity]', 1, class: 'AddMenuItem-quantity' %>
+                    <button class="MenuItem-decrement-qty" type="button" onclick="decrementQuantity(<%= index %>)">
+                      <img src="/minus.png" alt="decrement" height="24px" width="24px">
+                    </button>
+                    <%= number_field_tag 'menu_item_info[]info[quantity]', 1, id: index , class: 'AddMenuItem-quantity' %>
+                    <button class="MenuItem-increment-qty" type="button" onclick="incrementQuantity(<%= index %>)">
+                      <img src="/add.webp" alt="increment" height="24px" width="24px">
+                    </button>
                   </div>
                   <div class="MenuItem-control-wrapper">
                     <p>Select Item:</p>
-                    <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id %>
+                    <%= check_box_tag 'menu_item_info[]info[menu_item_id]', item.id, checked = false, class: 'AddMenuItem-select' %>
                   </div>
                 </div>
               </div>
